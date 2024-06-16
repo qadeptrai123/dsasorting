@@ -8,8 +8,13 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
+<<<<<<< Updated upstream
       "cwd": "e:/HK3/dsasorting/Source",
       "program": "e:/HK3/dsasorting/Source/build/Debug/outDebug",
+=======
+      "cwd": ".",
+      "program": "build/Debug/outDebug",
+>>>>>>> Stashed changes
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
