@@ -3,16 +3,9 @@
 
 using namespace std;
 
-void test() {
-    return;
-}
-
-void kkk() {
-    cout << "xin chao";
-}
 
 int main() {
-    hjhj();
+    cout << "Hello";
 
 
     return 0;
