@@ -3,6 +3,10 @@
 
 using namespace std;
 
+void test() {
+    return;
+}
+
 int main() {
     hjhj();
 
