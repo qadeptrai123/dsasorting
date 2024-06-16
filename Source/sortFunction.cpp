@@ -9,3 +9,10 @@ void quickSort(int arr[], int low, int high) {
         quickSort(arr, pi + 1, high);
     }
 }
+
+
+//this is Khuong work space
+void shellSort(int cc)
+{
+
+}
