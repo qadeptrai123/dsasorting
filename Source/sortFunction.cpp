@@ -10,6 +10,7 @@ void quickSort(int arr[], int low, int high) {
     }
 }
 
+<<<<<<< Updated upstream
 //this is Khuong work space
 void shellSort(int cc)
 {
@@ -19,3 +20,23 @@ void shellSort(int cc)
 void kkkkkkk() {
     return;
 }
+=======
+
+//This is Khuong's workspace
+
+//------------------------------------------------------------
+void shellSort(int cc){
+
+}
+
+
+void heapSort(){
+
+}
+
+void mergeSort(){
+
+}
+
+//------------------------------------------------------------
+>>>>>>> Stashed changes
