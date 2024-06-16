@@ -7,6 +7,10 @@ void test() {
     return;
 }
 
+void kkk() {
+    cout << "xin chao";
+}
+
 int main() {
     hjhj();
 
