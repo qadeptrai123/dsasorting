@@ -5,11 +5,11 @@
 
 //Shell Sort
 //https://www.scholarhat.com/tutorial/datastructures/shell-sort-in-data-structures
-void shellSort(int *array, int number_of_elments) {
+void shellSort(int *array, int number_of_elements) {
     int j, store;
-    int interval = number_of_elments / 2;
+    int interval = number_of_elements / 2;
     while (interval > 0) {
-        for (int i = interval; i < number_of_elments; i++) {
+        for (int i = interval; i < number_of_elements; i++) {
             store = array[i];
             j = i;
             while (j >= interval && array[j - interval] > store) {
@@ -22,13 +22,13 @@ void shellSort(int *array, int number_of_elments) {
     }
 }
 // Shell Sort with counting 
-void  shellSortWithCounting(int *array, int number_of_elments, int &count_assign , int &count_compare) {
+void  shellSortWithCounting(int *array, int number_of_elements, int &count_assign , int &count_compare) {
     count_assign = 0;
     count_compare = 0;
     int i, j, store;
-    int interval = number_of_elments / 2; ++count_assign;
+    int interval = number_of_elements / 2; ++count_assign;
     while (++count_compare && interval > 0) {
-        for (i = interval, ++count_assign; ++count_compare && (i < number_of_elments); i++, ++count_assign) {
+        for (i = interval, ++count_assign; ++count_compare && (i < number_of_elements); i++, ++count_assign) {
             store = array[i]; ++count_assign;
             j = i; ++count_assign;
             while ((count_compare += 3) && (j >= interval && array[j - interval] > store)) {

@@ -15,7 +15,7 @@ int main() {
         cout << arr[i] << " ";
     cout << endl;
     cout << "---------" << endl;
-    cout << "assignments: " << assign << endl;
-    cout << "comparisions: " << compare << endl;
+    cout << "Assignments: " << assign << endl;
+    cout << "Comparisions: " << compare << endl;
     return 0;
 }
