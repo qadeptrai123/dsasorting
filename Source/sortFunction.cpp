@@ -100,8 +100,4 @@ void heapifyWithCounting(int array[], int number_of_elements, int current_index,
     }
 }
 
-
-
-
-
 //Merge Sort

@@ -10,7 +10,7 @@ int main() {
         cout << arr[i] << " ";
     cout << endl;
     int assign, compare;
-    heapSortWithCounting(arr, 10, assign, compare);
+    shellSortWithCounting(arr, 10, assign, compare);
     for(int i = 0; i < 10; i++)
         cout << arr[i] << " ";
     cout << endl;
