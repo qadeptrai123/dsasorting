@@ -1,8 +1,6 @@
 #include "sortFunction.h"
 
 
-
-
 //Shell Sort
 //https://www.scholarhat.com/tutorial/datastructures/shell-sort-in-data-structures
 void shellSort(int *array, int number_of_elements) {
@@ -101,3 +99,109 @@ void heapifyWithCounting(int array[], int number_of_elements, int current_index,
 }
 
 //Merge Sort
+void mergeTwoSubArrays(int *array, int left, int middleIndex, int right)
+{
+    int sizeOfsubArrayOne = middleIndex - left + 1;
+    int sizeOfsubArrayTwo = right - middleIndex;
+
+    int *leftArray = new int[sizeOfsubArrayOne];
+    int *rightArray = new int[sizeOfsubArrayTwo];
+
+    for (auto i = 0; i < sizeOfsubArrayOne; i++)
+        leftArray[i] = array[left + i];
+    for (auto j = 0; j < sizeOfsubArrayTwo; j++)
+        rightArray[j] = array[middleIndex + j + 1];
+
+    int indexOfSubArrayOne = 0;
+    int indexOfSubArrayTwo = 0;
+    int indexOfMergedArray = left;
+
+    while (indexOfSubArrayOne < sizeOfsubArrayOne && indexOfSubArrayTwo < sizeOfsubArrayTwo) {
+        if (leftArray[indexOfSubArrayOne] <= rightArray[indexOfSubArrayTwo]) {
+            array[indexOfMergedArray] = leftArray[indexOfSubArrayOne];
+            indexOfSubArrayOne++;
+        }
+        else {
+            array[indexOfMergedArray] = rightArray[indexOfSubArrayTwo];
+            indexOfSubArrayTwo++;
+        }
+        indexOfMergedArray++;
+    }
+
+    while (indexOfSubArrayOne < sizeOfsubArrayOne) {
+        array[indexOfMergedArray] = leftArray[indexOfSubArrayOne];
+        indexOfSubArrayOne++;
+        indexOfMergedArray++;
+    }
+    while (indexOfSubArrayTwo < sizeOfsubArrayTwo) {
+        array[indexOfMergedArray] = rightArray[indexOfSubArrayTwo];
+        indexOfSubArrayTwo++;
+        indexOfMergedArray++;
+    }
+    delete[] leftArray;
+    delete[] rightArray;
+}
+void mergeSort(int array[], int leftIndex, int rightIndex)
+{
+    if (leftIndex >= rightIndex)
+        return;
+    int middleIndex = leftIndex + (rightIndex - leftIndex) / 2;
+    mergeSort(array, leftIndex, middleIndex);
+    mergeSort(array, middleIndex + 1, rightIndex);
+    mergeTwoSubArrays(array, leftIndex, middleIndex, rightIndex);
+}
+
+//merge sort with counting 
+
+void mergeTwoSubArraysWithCounting(int *array, int left, int middleIndex, int right, int &count_assign , int &count_compare)
+{
+    int i;
+    int sizeOfsubArrayOne = middleIndex - left + 1; ++count_assign;
+    int sizeOfsubArrayTwo = right - middleIndex; ++count_assign;
+
+    int *leftArray = new int[sizeOfsubArrayOne]; ++count_assign;
+    int *rightArray = new int[sizeOfsubArrayTwo]; ++count_assign;
+
+    for (++count_assign, i = 0; ++count_compare && (i < sizeOfsubArrayOne); i++, ++count_assign)
+        leftArray[i] = array[left + i]; ++count_assign;
+    for (++count_assign, i = 0; ++count_compare && (i < sizeOfsubArrayTwo); i++, ++count_assign)
+        rightArray[i] = array[middleIndex + i + 1]; ++count_assign;
+
+    int indexOfSubArrayOne = 0; ++count_assign;
+    int indexOfSubArrayTwo = 0; ++count_assign;
+    int indexOfMergedArray = left; ++count_assign;
+
+    while ( (count_compare += 3) && (indexOfSubArrayOne < sizeOfsubArrayOne && indexOfSubArrayTwo < sizeOfsubArrayTwo)) {
+        if ( (++count_compare) && (leftArray[indexOfSubArrayOne] <= rightArray[indexOfSubArrayTwo])) {
+            array[indexOfMergedArray] = leftArray[indexOfSubArrayOne]; ++count_assign;
+            indexOfSubArrayOne++; ++count_assign;
+        }
+        else {
+            array[indexOfMergedArray] = rightArray[indexOfSubArrayTwo]; ++count_assign;
+            indexOfSubArrayTwo++; ++count_assign;
+        }
+        indexOfMergedArray++; ++count_assign;
+    }
+
+    while ((++count_compare) && (indexOfSubArrayOne < sizeOfsubArrayOne)) {
+        array[indexOfMergedArray] = leftArray[indexOfSubArrayOne]; ++count_assign;
+        indexOfSubArrayOne++; ++count_assign;
+        indexOfMergedArray++; ++count_assign;
+    }
+    while ( (++count_compare) && (indexOfSubArrayTwo < sizeOfsubArrayTwo)) {
+        array[indexOfMergedArray] = rightArray[indexOfSubArrayTwo]; ++count_assign;
+        indexOfSubArrayTwo++; ++count_assign;
+        indexOfMergedArray++; ++count_assign;
+    }
+    delete[] leftArray;
+    delete[] rightArray;
+}
+void mergeSortWithCounting(int array[], int leftIndex, int rightIndex, int &count_assign , int &count_compare)
+{
+    if ( ++count_compare && (leftIndex >= rightIndex))
+        return;
+    int middleIndex = leftIndex + (rightIndex - leftIndex) / 2; ++count_assign;
+    mergeSortWithCounting(array, leftIndex, middleIndex, count_assign,count_compare);
+    mergeSortWithCounting(array, middleIndex + 1, rightIndex, count_assign, count_compare);
+    mergeTwoSubArraysWithCounting(array, leftIndex, middleIndex, rightIndex, count_assign, count_compare);
+}
