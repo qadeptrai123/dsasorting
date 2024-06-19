@@ -3,15 +3,16 @@ using namespace std;
 
 
 int main() {
-    int arr[10] ={0};
-    for (int i = 0; i < 10; ++i)
+    int arr[100] ={0};
+    for (int i = 0; i < 100; ++i)
         arr[i] = rand() % 100;
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < 100; i++)
         cout << arr[i] << " ";
     cout << endl;
     int assign, compare;
-    shellSortWithCounting(arr, 10, assign, compare);
-    for(int i = 0; i < 10; i++)
+    // shellSortWithCounting(arr, 100, assign, compare);
+    // heapSortWithCounting(arr, 100, assign, compare);
+    for(int i = 0; i < 100; i++)
         cout << arr[i] << " ";
     cout << endl;
     cout << "---------" << endl;
