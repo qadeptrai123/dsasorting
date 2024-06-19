@@ -21,8 +21,8 @@ void shellSort(int *array, int number_of_elements) {
         interval /= 2;
     }
 }
-// Shell Sort with counting 
-void  shellSortWithCounting(int *array, int number_of_elements, int &count_assign , int &count_compare) {
+// Shell Sort with Counting 
+void shellSortWithCounting(int *array, int number_of_elements, int &count_assign , int &count_compare) {
     count_assign = 0;
     count_compare = 0;
     int i, j, store;
@@ -72,7 +72,7 @@ void heapify(int array[], int number_of_elements, int current_index) {
     }
 }
 
-// Heap Sort with counting
+// Heap Sort with Counting
 void heapifyWithCounting(int array[], int number_of_elements, int current_index, int &count_assign , int &count_compare) {
     int index_of_largest_element = current_index; ++count_assign;
     int left = 2 * current_index + 1; ++count_assign;

@@ -17,6 +17,6 @@ int main() {
     cout << endl;
     cout << "---------" << endl;
     cout << "Assignments: " << assign << endl;
-    cout << "Comparisions: " << compare << endl;
+    cout << "Comparisons: " << compare << endl;
     return 0;
 }
