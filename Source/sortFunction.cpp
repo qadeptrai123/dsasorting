@@ -355,7 +355,7 @@ void radixSortWithCounting(int* array, int numberOfElements, int &countCompare) 
 
 //Flash Sort
 //https://www.w3resource.com/javascript-exercises/searching-and-sorting-algorithm/searching-and-sorting-algorithm-exercise-12.php#google_vignette
-void flashSort (int* array, int numberOfElements){
+void flashSort(int* array, int numberOfElements) {
 	int numberOfClasses = 0.45 * numberOfElements;
 	int* classCounts = new int [numberOfClasses]();
 	
@@ -419,7 +419,7 @@ void flashSort (int* array, int numberOfElements){
 	delete[] classCounts;
 }
 
-void flashSortWithCounting (int* array, int numberOfElements, int& countCompare){
+void flashSortWithCounting(int* array, int numberOfElements, int& countCompare){
     countCompare = 0;
 	int numberOfClasses = 0.45 * numberOfElements;
 	int* classCounts = new int [numberOfClasses]();
@@ -481,10 +481,4 @@ void flashSortWithCounting (int* array, int numberOfElements, int& countCompare)
 		array[index + 1] = hold;
 	}
 	delete[] classCounts;
-}
-
-
-
-
-
-        
+}        
