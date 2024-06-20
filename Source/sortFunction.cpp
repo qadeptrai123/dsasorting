@@ -204,3 +204,287 @@ void mergeSortWithCounting(int *array, int leftIndex, int rightIndex, int &count
     mergeSortWithCounting(array, middleIndex + 1, rightIndex, countAssign, countCompare);
     mergeTwoSubArraysWithCounting(array, leftIndex, middleIndex, rightIndex, countAssign, countCompare);
 }
+
+//Counting Sort
+//https://www.programiz.com/dsa/counting-sort
+//https://www.youtube.com/watch?v=7zuGmKfUt7s
+
+void countingSort (int* array, int numberOfElements){
+    //Find the largest number of the array
+    int largestElement = array[0];
+    for (int i = 1; i < numberOfElements; i++){
+        largestElement = (array[i] > largestElement) ? array[i] : largestElement;
+    }
+
+    //Initialize count array and store the count of each element
+    int* count = new int [largestElement + 1](); //initialize with 0
+    for (int i = 0; i < numberOfElements; i++){
+        count[array[i]]++;
+    }
+
+    // Calculate cumulative count
+    for (int i = 1; i <= largestElement; i++){
+        count[i] += count[i - 1];
+    }
+
+    // Place the elements in sorted order
+    int* outputArray = new int [numberOfElements];
+    for (int i = numberOfElements - 1; i >= 0; i--){
+        outputArray[count[array[i]] - 1] = array[i];
+        count[array[i]]--;
+    }
+
+    //Copy output array to array
+    for (int i = 0; i < numberOfElements; i++){
+        array[i] = outputArray[i];
+    }
+    delete []count;
+    delete []outputArray;
+}
+
+void countingSortWithCounting (int* array, int numberOfElements, int &countCompare){
+    countCompare = 0;
+
+    int largestElement = array[0];
+    for (int i = 0; ++countCompare && i < numberOfElements; i++){
+        largestElement = (array[i] > largestElement) ? array[i] : largestElement;
+        ++countCompare;
+    }
+
+    int* count = new int [largestElement + 1]();
+    for (int i = 0; ++countCompare && i < numberOfElements; i++){
+        count[array[i]]++;
+    }
+
+    for (int i = 1; ++countCompare && i <= largestElement; i++){
+        count[i] += count[i - 1];
+    }
+
+    int* outputArray = new int [numberOfElements];
+    for (int i = numberOfElements - 1; ++countCompare && i >= 0; i--){
+        outputArray[count[array[i]] - 1] = array[i];
+        count[array[i]]--;
+    }
+
+    for (int i = 0; ++countCompare && i <numberOfElements; i++){
+        array[i] = outputArray[i];
+    }
+    delete[] count;
+    delete[] outputArray;
+}
+
+//Radix Sort
+//https://www.programiz.com/dsa/radix-sort
+//https://www.youtube.com/watch?v=nu4gDuFabIM
+
+void countingSortForRadix(int* array, int numberOfElements, int place) {
+    int* output = new int[numberOfElements];
+    int count[10] = {0}; //Initialzie count array of digit (0 to 9) with all zero
+    
+    // Calculate and store the count of each element
+    for (int i = 0; i < numberOfElements; i++){
+        count[(array[i] / place) % 10]++;
+    }
+    
+    // Calculate cumulative count
+    for (int i = 1; i < 10; i++){
+        count[i] += count[i - 1];
+    }
+    // Place the elements in sorted order
+    for (int i = numberOfElements - 1; i >= 0; i--) {
+        output[count[(array[i] / place) % 10] - 1] = array[i];
+        count[(array[i] / place) % 10]--;
+    }
+
+    //Copy output array to array
+    for (int i = 0; i < numberOfElements; i++){
+        array[i] = output[i];
+    }
+
+    delete[] output;
+}
+
+void radixSort(int* array, int numberOfElements) {
+    //Find the largest number of the array
+    int largestElement = array[0];
+    for (int i = 1; i < numberOfElements; i++){
+        largestElement = (array[i] > largestElement) ? array[i] : largestElement;
+    }
+
+    // Use ounting sort to sort elements based on place value.
+    for (int place = 1; largestElement / place > 0; place *= 10){
+        countingSortForRadix(array, numberOfElements, place);
+    }
+}
+
+void countingSortForRadixWithCounting(int* array, int numberOfElements, int place, int &countCompare) {
+    int* output = new int[numberOfElements];
+    int count[10] = {0};
+    
+    for (int i = 0; ++countCompare && i < numberOfElements; i++){
+        count[(array[i] / place) % 10]++;
+    }
+    
+    for (int i = 1; ++countCompare && i < 10; i++){
+        count[i] += count[i - 1];
+    }
+
+    for (int i = numberOfElements - 1; ++countCompare && i >= 0; i--) {
+        output[count[(array[i] / place) % 10] - 1] = array[i];
+        count[(array[i] / place) % 10]--;
+    }
+
+    for (int i = 0; ++countCompare && i < numberOfElements; i++){
+        array[i] = output[i];
+    }
+
+    delete[] output;
+}
+
+void radixSortWithCounting(int* array, int numberOfElements, int &countCompare) {
+    countCompare = 0;
+    int largestElement = array[0];
+    for (int i = 1; ++countCompare && i < numberOfElements; i++){
+        largestElement = (array[i] > largestElement) ? array[i] : largestElement;
+    }
+
+    for (int place = 1; ++countCompare && largestElement / place > 0; place *= 10){
+        countingSortForRadixWithCounting(array, numberOfElements, place, countCompare);
+    }
+}
+
+//Flash Sort
+//https://www.w3resource.com/javascript-exercises/searching-and-sorting-algorithm/searching-and-sorting-algorithm-exercise-12.php#google_vignette
+void flashSort (int* array, int numberOfElements){
+	int numberOfClasses = 0.45 * numberOfElements;
+	int* classCounts = new int [numberOfClasses]();
+	
+	//Find largest and least element
+	int minValue = array[0];
+	int maxIndex = 0;
+	for (int i = 1; i < numberOfElements; i++){
+		minValue = (minValue > array[i]) ? array[i] : minValue;
+		maxIndex = (array[maxIndex] < array[i]) ? i : maxIndex;
+	}
+	int maxValue = array[maxIndex];
+	
+	//Count number elements of each class 
+	for (int i = 0; i < numberOfElements; i++){
+		int index = (numberOfClasses - 1)*(array[i] - minValue)/(maxValue - minValue);
+		classCounts[index]++;
+	}
+	
+	//Find starting position of each class
+	for (int i = 1; i < numberOfElements; i++){
+		classCounts[i] += classCounts[i - 1];
+	}
+	
+	//Permute elements to their class
+	int hold = array[maxIndex];
+	array[maxIndex] = array[0];
+	array[0] = hold;
+	
+	int move = 0;
+	int flash = 0;
+	int i = 0;
+	int j = 0; 
+	int k = numberOfClasses - 1;
+	
+	while (move < (numberOfElements - 1)){
+		while (j > (classCounts[i] - 1)){
+			j++;
+			k = (numberOfClasses - 1)*(array[i] - minValue)/(maxValue - minValue);
+		}
+		if (k < 0) break;
+		flash = array[j];
+		while (j != classCounts[k]){
+			k = (numberOfClasses - 1)*(array[i] - minValue)/(maxValue - minValue);
+			i = --classCounts[k];
+			hold = array[i];
+			array[i] = flash;
+			flash = hold;
+			++move;
+		}
+	}
+	
+    //Sort by insertion sort
+	for (j = 1; j < numberOfElements; j++){
+		hold = array[j];
+		int index = j - 1;
+		while (index >= 0 && array[index] > hold){
+			array[index + 1] = array[index--];
+		}
+		array[index + 1] = hold;
+	}
+	delete[] classCounts;
+}
+
+void flashSortWithCounting (int* array, int numberOfElements, int& countCompare){
+    countCompare = 0;
+	int numberOfClasses = 0.45 * numberOfElements;
+	int* classCounts = new int [numberOfClasses]();
+	
+	//Find largest and least element
+	int minValue = array[0];
+	int maxIndex = 0;
+	for (int i = 1; ++countCompare && i < numberOfElements; i++){
+		minValue = (++countCompare && minValue > array[i]) ? array[i] : minValue;
+		maxIndex = (++countCompare && array[maxIndex] < array[i]) ? i : maxIndex;
+	}
+	int maxValue = array[maxIndex];
+	
+	//Count number elements of each class 
+	for (int i = 0;++countCompare &&  i < numberOfElements; i++){
+		int index = (numberOfClasses - 1)*(array[i] - minValue)/(maxValue - minValue);
+		classCounts[index]++;
+	}
+	
+	//Find starting position of each class
+	for (int i = 1;++countCompare &&  i < numberOfElements; i++){
+		classCounts[i] += classCounts[i - 1];
+	}
+	
+	//Permute elements to their class
+	int hold = array[maxIndex];
+	array[maxIndex] = array[0];
+	array[0] = hold;
+	
+	int move = 0;
+	int flash = 0;
+	int i = 0;
+	int j = 0; 
+	int k = numberOfClasses - 1;
+	
+	while (++countCompare && move < (numberOfElements - 1)){
+		while (++countCompare && j > (classCounts[i] - 1)){
+			j++;
+			k = (numberOfClasses - 1)*(array[i] - minValue)/(maxValue - minValue);
+		}
+		if (++countCompare && k < 0) break;
+		flash = array[j];
+		while (++countCompare && j != classCounts[k]){
+			k = (numberOfClasses - 1)*(array[i] - minValue)/(maxValue - minValue);
+			i = --classCounts[k];
+			hold = array[i];
+			array[i] = flash;
+			flash = hold;
+			++move;
+		}
+	}
+	
+	for (j = 1;++countCompare &&  j < numberOfElements; j++){
+		hold = array[j];
+		int index = j - 1;
+		while (++countCompare && index >= 0 && ++countCompare &&  array[index] > hold){
+			array[index + 1] = array[index--];
+		}
+		array[index + 1] = hold;
+	}
+	delete[] classCounts;
+}
+
+
+
+
+
+        
