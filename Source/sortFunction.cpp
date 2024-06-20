@@ -152,7 +152,6 @@ void mergeSort(int *array, int leftIndex, int rightIndex)
 }
 
 //merge sort with counting 
-
 void mergeTwoSubArraysWithCounting(int *array, int left, int middleIndex, int right, int &countAssign , int &countCompare)
 {
     int i;
