@@ -5,14 +5,14 @@
 
 
 
-void shellSort(int *array, int number_of_elements);
-void shellSortWithCounting(int *array, int number_of_elements, int &count_assign , int &count_compare);
+void shellSort(int *array, int numberOfElements);
+void shellSortWithCounting(int *array, int numberOfElements, int &countAssign , int &countCompare);
 void swapElement(int *num1, int *num2);
-void heapSort(int array[], int number_of_elements);
-void heapify(int array[], int number_of_elements, int current_index);
-void heapifyWithCounting(int array[], int number_of_elements, int current_index, int &count_assign , int &count_compare);
-void heapSortWithCounting(int array[], int number_of_elements, int &count_assign , int &count_compare);
+void heapSort(int *array, int numberOfElements);
+void heapify(int *array, int numberOfElements, int currentIndex);
+void heapifyWithCounting(int *array, int numberOfElements, int currentIndex, int &countAssign , int &countCompare);
+void heapSortWithCounting(int *array, int numberOfElements, int &countAssign , int &countCompare);
 void mergeTwoSubArrays(int *array, int left, int middleIndex, int right);
-void mergeSort(int array[], int leftIndex, int rightIndex);
-void mergeTwoSubArraysWithCounting(int *array, int left, int middleIndex, int right, int &count_assign , int &count_compare);
-void mergeSortWithCounting(int array[], int leftIndex, int rightIndex, int &count_assign , int &count_compare);
+void mergeSort(int *array, int leftIndex, int rightIndex);
+void mergeTwoSubArraysWithCounting(int *array, int left, int middleIndex, int right, int &countAssign , int &countCompare);
+void mergeSortWithCounting(int *array, int leftIndex, int rightIndex, int &countAssign , int &countCompare);

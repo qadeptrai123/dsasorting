@@ -3,11 +3,11 @@
 
 //Shell Sort
 //https://www.scholarhat.com/tutorial/datastructures/shell-sort-in-data-structures
-void shellSort(int *array, int number_of_elements) {
+void shellSort(int *array, int numberOfElements) {
     int j, store;
-    int interval = number_of_elements / 2;
+    int interval = numberOfElements / 2;
     while (interval > 0) {
-        for (int i = interval; i < number_of_elements; i++) {
+        for (int i = interval; i < numberOfElements; i++) {
             store = array[i];
             j = i;
             while (j >= interval && array[j - interval] > store) {
@@ -20,22 +20,22 @@ void shellSort(int *array, int number_of_elements) {
     }
 }
 // Shell Sort with Counting 
-void shellSortWithCounting(int *array, int number_of_elements, int &count_assign , int &count_compare) {
-    count_assign = 0;
-    count_compare = 0;
+void shellSortWithCounting(int *array, int numberOfElements, int &countAssign , int &countCompare) {
+    countAssign = 0;
+    countCompare = 0;
     int i, j, store;
-    int interval = number_of_elements / 2; ++count_assign;
-    while (++count_compare && interval > 0) {
-        for (i = interval, ++count_assign; ++count_compare && (i < number_of_elements); i++, ++count_assign) {
-            store = array[i]; ++count_assign;
-            j = i; ++count_assign;
-            while ((count_compare += 3) && (j >= interval && array[j - interval] > store)) {
-                array[j] = array[j - interval]; ++count_assign;
-                j -= interval; ++count_assign;
+    int interval = numberOfElements / 2; ++countAssign;
+    while (++countCompare && interval > 0) {
+        for (i = interval, ++countAssign; ++countCompare && (i < numberOfElements); i++, ++countAssign) {
+            store = array[i]; ++countAssign;
+            j = i; ++countAssign;
+            while ((countCompare += 3) && (j >= interval && array[j - interval] > store)) {
+                array[j] = array[j - interval]; ++countAssign;
+                j -= interval; ++countAssign;
             }
-            array[j] = store; ++count_assign;
+            array[j] = store; ++countAssign;
         }
-        interval /= 2; ++count_assign;
+        interval /= 2; ++countAssign;
     }
 }
 //Heap Sort
@@ -45,56 +45,56 @@ void swapElement(int *num1, int *num2) {
     *num2 = *num1 - *num2; //this function requires 3 assignments
     *num1 = *num1 - *num2;
 }
-void heapify(int array[], int number_of_elements, int current_index) {
-    int index_of_largest_element = current_index;
-    int left = 2 * current_index + 1;
-    int right = 2 * current_index + 2;
+void heapify(int *array, int numberOfElements, int currentIndex) {
+    int indexOfLargestElement = currentIndex;
+    int left = 2 * currentIndex + 1;
+    int right = 2 * currentIndex + 2;
   
-    if (left < number_of_elements && array[left] > array[index_of_largest_element])
-        index_of_largest_element = left;
-    if (right < number_of_elements && array[right] > array[index_of_largest_element])
-        index_of_largest_element = right;
-    if (index_of_largest_element != current_index) {
-        swapElement(&array[current_index], &array[index_of_largest_element]);
-        heapify(array, number_of_elements, index_of_largest_element);
+    if (left < numberOfElements && array[left] > array[indexOfLargestElement])
+        indexOfLargestElement = left;
+    if (right < numberOfElements && array[right] > array[indexOfLargestElement])
+        indexOfLargestElement = right;
+    if (indexOfLargestElement != currentIndex) {
+        swapElement(&array[currentIndex], &array[indexOfLargestElement]);
+        heapify(array, numberOfElements, indexOfLargestElement);
     }
 }
-  void heapSort(int array[], int number_of_elements) {
+  void heapSort(int *array, int numberOfElements) {
     int i;
-    for (i = number_of_elements / 2 - 1; i >= 0; i--)
-        heapify(array, number_of_elements, i);
+    for (i = numberOfElements / 2 - 1; i >= 0; i--)
+        heapify(array, numberOfElements, i);
   
-    for (i = number_of_elements - 1; i >= 0; i--) {
+    for (i = numberOfElements - 1; i >= 0; i--) {
         swapElement(&array[0], &array[i]);
         heapify(array, i, 0);
     }
 }
 
 // Heap Sort with Counting
-void heapifyWithCounting(int array[], int number_of_elements, int current_index, int &count_assign , int &count_compare) {
-    int index_of_largest_element = current_index; ++count_assign;
-    int left = 2 * current_index + 1; ++count_assign;
-    int right = 2 * current_index + 2; ++count_assign;
+void heapifyWithCounting(int *array, int numberOfElements, int currentIndex, int &countAssign , int &countCompare) {
+    int indexOfLargestElement = currentIndex; ++countAssign;
+    int left = 2 * currentIndex + 1; ++countAssign;
+    int right = 2 * currentIndex + 2; ++countAssign;
   
-    if ((count_compare += 3) && (left < number_of_elements && array[left] > array[index_of_largest_element]))
-        index_of_largest_element = left; ++count_assign;
-    if ((count_compare += 3) && (right < number_of_elements && array[right] > array[index_of_largest_element]))
-        index_of_largest_element = right; ++count_assign;
-    if ((++count_compare) && (index_of_largest_element != current_index)) {
-        swapElement(&array[current_index], &array[index_of_largest_element]); count_assign += 3;
-        heapifyWithCounting(array, number_of_elements, index_of_largest_element, count_assign, count_compare); ++count_assign;
+    if ((countCompare += 3) && (left < numberOfElements && array[left] > array[indexOfLargestElement]))
+        indexOfLargestElement = left; ++countAssign;
+    if ((countCompare += 3) && (right < numberOfElements && array[right] > array[indexOfLargestElement]))
+        indexOfLargestElement = right; ++countAssign;
+    if ((++countCompare) && (indexOfLargestElement != currentIndex)) {
+        swapElement(&array[currentIndex], &array[indexOfLargestElement]); countAssign += 3;
+        heapifyWithCounting(array, numberOfElements, indexOfLargestElement, countAssign, countCompare); ++countAssign;
     }
 }
-  void heapSortWithCounting(int array[], int number_of_elements, int &count_assign , int &count_compare) {
+  void heapSortWithCounting(int *array, int numberOfElements, int &countAssign , int &countCompare) {
     int i;
-    count_assign = 0;
-    count_compare = 0;
-    for (++count_assign, i = number_of_elements / 2 - 1; (++count_compare) && (i >= 0); i--, ++count_assign)
-        heapifyWithCounting(array, number_of_elements, i, count_assign, count_compare); ++count_assign;
+    countAssign = 0;
+    countCompare = 0;
+    for (++countAssign, i = numberOfElements / 2 - 1; (++countCompare) && (i >= 0); i--, ++countAssign)
+        heapifyWithCounting(array, numberOfElements, i, countAssign, countCompare); ++countAssign;
   
-    for (++count_assign, i = number_of_elements - 1; (++count_compare) && (i >= 0); ++count_assign, i--) {
-        swapElement(&array[0], &array[i]); count_assign += 3;
-        heapifyWithCounting(array, i, 0, count_assign, count_compare); ++count_assign;
+    for (++countAssign, i = numberOfElements - 1; (++countCompare) && (i >= 0); ++countAssign, i--) {
+        swapElement(&array[0], &array[i]); countAssign += 3;
+        heapifyWithCounting(array, i, 0, countAssign, countCompare); ++countAssign;
     }
 }
 
@@ -141,7 +141,7 @@ void mergeTwoSubArrays(int *array, int left, int middleIndex, int right)
     delete[] leftArray;
     delete[] rightArray;
 }
-void mergeSort(int array[], int leftIndex, int rightIndex)
+void mergeSort(int *array, int leftIndex, int rightIndex)
 {
     if (leftIndex >= rightIndex)
         return;
@@ -153,55 +153,55 @@ void mergeSort(int array[], int leftIndex, int rightIndex)
 
 //merge sort with counting 
 
-void mergeTwoSubArraysWithCounting(int *array, int left, int middleIndex, int right, int &count_assign , int &count_compare)
+void mergeTwoSubArraysWithCounting(int *array, int left, int middleIndex, int right, int &countAssign , int &countCompare)
 {
     int i;
-    int sizeOfsubArrayOne = middleIndex - left + 1; ++count_assign;
-    int sizeOfsubArrayTwo = right - middleIndex; ++count_assign;
+    int sizeOfsubArrayOne = middleIndex - left + 1; ++countAssign;
+    int sizeOfsubArrayTwo = right - middleIndex; ++countAssign;
 
-    int *leftArray = new int[sizeOfsubArrayOne]; ++count_assign;
-    int *rightArray = new int[sizeOfsubArrayTwo]; ++count_assign;
+    int *leftArray = new int[sizeOfsubArrayOne]; ++countAssign;
+    int *rightArray = new int[sizeOfsubArrayTwo]; ++countAssign;
 
-    for (++count_assign, i = 0; ++count_compare && (i < sizeOfsubArrayOne); i++, ++count_assign)
-        leftArray[i] = array[left + i]; ++count_assign;
-    for (++count_assign, i = 0; ++count_compare && (i < sizeOfsubArrayTwo); i++, ++count_assign)
-        rightArray[i] = array[middleIndex + i + 1]; ++count_assign;
+    for (++countAssign, i = 0; ++countCompare && (i < sizeOfsubArrayOne); i++, ++countAssign)
+        leftArray[i] = array[left + i]; ++countAssign;
+    for (++countAssign, i = 0; ++countCompare && (i < sizeOfsubArrayTwo); i++, ++countAssign)
+        rightArray[i] = array[middleIndex + i + 1]; ++countAssign;
 
-    int indexOfSubArrayOne = 0; ++count_assign;
-    int indexOfSubArrayTwo = 0; ++count_assign;
-    int indexOfMergedArray = left; ++count_assign;
+    int indexOfSubArrayOne = 0; ++countAssign;
+    int indexOfSubArrayTwo = 0; ++countAssign;
+    int indexOfMergedArray = left; ++countAssign;
 
-    while ( (count_compare += 3) && (indexOfSubArrayOne < sizeOfsubArrayOne && indexOfSubArrayTwo < sizeOfsubArrayTwo)) {
-        if ( (++count_compare) && (leftArray[indexOfSubArrayOne] <= rightArray[indexOfSubArrayTwo])) {
-            array[indexOfMergedArray] = leftArray[indexOfSubArrayOne]; ++count_assign;
-            indexOfSubArrayOne++; ++count_assign;
+    while ( (countCompare += 3) && (indexOfSubArrayOne < sizeOfsubArrayOne && indexOfSubArrayTwo < sizeOfsubArrayTwo)) {
+        if ( (++countCompare) && (leftArray[indexOfSubArrayOne] <= rightArray[indexOfSubArrayTwo])) {
+            array[indexOfMergedArray] = leftArray[indexOfSubArrayOne]; ++countAssign;
+            indexOfSubArrayOne++; ++countAssign;
         }
         else {
-            array[indexOfMergedArray] = rightArray[indexOfSubArrayTwo]; ++count_assign;
-            indexOfSubArrayTwo++; ++count_assign;
+            array[indexOfMergedArray] = rightArray[indexOfSubArrayTwo]; ++countAssign;
+            indexOfSubArrayTwo++; ++countAssign;
         }
-        indexOfMergedArray++; ++count_assign;
+        indexOfMergedArray++; ++countAssign;
     }
 
-    while ((++count_compare) && (indexOfSubArrayOne < sizeOfsubArrayOne)) {
-        array[indexOfMergedArray] = leftArray[indexOfSubArrayOne]; ++count_assign;
-        indexOfSubArrayOne++; ++count_assign;
-        indexOfMergedArray++; ++count_assign;
+    while ((++countCompare) && (indexOfSubArrayOne < sizeOfsubArrayOne)) {
+        array[indexOfMergedArray] = leftArray[indexOfSubArrayOne]; ++countAssign;
+        indexOfSubArrayOne++; ++countAssign;
+        indexOfMergedArray++; ++countAssign;
     }
-    while ( (++count_compare) && (indexOfSubArrayTwo < sizeOfsubArrayTwo)) {
-        array[indexOfMergedArray] = rightArray[indexOfSubArrayTwo]; ++count_assign;
-        indexOfSubArrayTwo++; ++count_assign;
-        indexOfMergedArray++; ++count_assign;
+    while ( (++countCompare) && (indexOfSubArrayTwo < sizeOfsubArrayTwo)) {
+        array[indexOfMergedArray] = rightArray[indexOfSubArrayTwo]; ++countAssign;
+        indexOfSubArrayTwo++; ++countAssign;
+        indexOfMergedArray++; ++countAssign;
     }
     delete[] leftArray;
     delete[] rightArray;
 }
-void mergeSortWithCounting(int array[], int leftIndex, int rightIndex, int &count_assign , int &count_compare)
+void mergeSortWithCounting(int *array, int leftIndex, int rightIndex, int &countAssign , int &countCompare)
 {
-    if ( ++count_compare && (leftIndex >= rightIndex))
+    if ( ++countCompare && (leftIndex >= rightIndex))
         return;
-    int middleIndex = leftIndex + (rightIndex - leftIndex) / 2; ++count_assign;
-    mergeSortWithCounting(array, leftIndex, middleIndex, count_assign,count_compare);
-    mergeSortWithCounting(array, middleIndex + 1, rightIndex, count_assign, count_compare);
-    mergeTwoSubArraysWithCounting(array, leftIndex, middleIndex, rightIndex, count_assign, count_compare);
+    int middleIndex = leftIndex + (rightIndex - leftIndex) / 2; ++countAssign;
+    mergeSortWithCounting(array, leftIndex, middleIndex, countAssign,countCompare);
+    mergeSortWithCounting(array, middleIndex + 1, rightIndex, countAssign, countCompare);
+    mergeTwoSubArraysWithCounting(array, leftIndex, middleIndex, rightIndex, countAssign, countCompare);
 }
