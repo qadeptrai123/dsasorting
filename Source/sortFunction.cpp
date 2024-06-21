@@ -478,3 +478,12 @@ void flashSortWithCounting(int* array, int numberOfElements, int& countCompare){
 	}
 	delete[] classCounts;
 }        
+
+//QA (ShakerSort, InsertionSort)
+void shakerSort(int *array, int numberOfElements) {
+
+}
+
+int shakerSortWithCounting(int *array, int numberOfElements) {
+
+}
