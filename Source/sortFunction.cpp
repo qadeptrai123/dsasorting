@@ -423,8 +423,7 @@ void flashSortWithCounting(int* array, int numberOfElements, int& countCompare){
     countCompare = 0;
 	int numberOfClasses = 0.45 * numberOfElements;
 	int* classCounts = new int [numberOfClasses]();
-	
-	//Find largest and least element
+
 	int minValue = array[0];
 	int maxIndex = 0;
 	for (int i = 1; ++countCompare && i < numberOfElements; i++){
@@ -432,19 +431,16 @@ void flashSortWithCounting(int* array, int numberOfElements, int& countCompare){
 		maxIndex = (++countCompare && array[maxIndex] < array[i]) ? i : maxIndex;
 	}
 	int maxValue = array[maxIndex];
-	
-	//Count number elements of each class 
+
 	for (int i = 0;++countCompare &&  i < numberOfElements; i++){
 		int index = (numberOfClasses - 1)*(array[i] - minValue)/(maxValue - minValue);
 		classCounts[index]++;
 	}
-	
-	//Find starting position of each class
+
 	for (int i = 1;++countCompare &&  i < numberOfElements; i++){
 		classCounts[i] += classCounts[i - 1];
 	}
-	
-	//Permute elements to their class
+
 	int hold = array[maxIndex];
 	array[maxIndex] = array[0];
 	array[0] = hold;
