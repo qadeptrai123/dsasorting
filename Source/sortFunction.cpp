@@ -1,5 +1,6 @@
 #include "sortFunction.h"
-
+#include<algorithm>
+using namespace std;
 
 //Shell Sort
 //https://www.scholarhat.com/tutorial/datastructures/shell-sort-in-data-structures
@@ -485,10 +486,75 @@ int flashSortWithCounting(int* array, int arraySize){
 }
 
 //QA (ShakerSort, InsertionSort)
-void shakerSort(int *array, int numberOfElements) {
+void shakerSort(int *array, int arraySize) {
+    int left = 0;
+    int right = arraySize-1;
+    int k = 0;
+    while(left < right) {
+        for(int i = left; i < right; ++i) {
+            if(array[i] > array[i+1]) {
+                swap(array[i], array[i+1]);
+                k = i;
+            }
+        }
+        right = k;
+        for(int i = right; i > left; --i) {
+            if(array[i] < array[i-1]) {
+                swap(array[i], array[i-1]);
+                k = i;
+            }
+        }
+        left = k;
+    }
+}
+//https://www.iostream.co/article/bubble-sort-va-shaker-sort-01Si3U
 
+long long shakerSortWithCounting(int *array, int arraySize) {
+    int left = 0;
+    int right = arraySize-1;
+    int k = 0;
+    long long countCompare = 0;
+    while(++countCompare && left < right) {
+        for(int i = left; ++countCompare && i < right; ++i) {
+            if(++countCompare && array[i] > array[i+1]) {
+                swap(array[i], array[i+1]);
+                k = i;
+            }
+        }
+        right = k;
+        for(int i = right; ++countCompare && i > left; --i) {
+            if(++countCompare && array[i] < array[i-1]) {
+                swap(array[i], array[i-1]);
+                k = i;
+            }
+        }
+        left = k;
+    }
+    return countCompare;
 }
 
-int shakerSortWithCounting(int *array, int numberOfElements) {
+void insertionSort(int *array, int arraySize) {
+    for(int i = 1; i < arraySize; ++i) {
+        int key = array[i];
+        int j = i - 1;
+        while(j >= 0 && array[j] > key) {
+            array[j+1] = array[j];
+            j--;
+        }
+        array[j+1] = key;
+    }
+}
 
+long long insertionSortWithCounting(int *array, int arraySize) {
+    long long countCompare = 0;
+    for(int i = 1; ++countCompare && i < arraySize; ++i) {
+        int key = array[i];
+        int j = i - 1;
+        while(++countCompare && j >= 0 && ++countCompare && array[j] > key) {
+            array[j+1] = array[j];
+            j--;
+        }
+        array[j+1] = key;
+    }
+    return countCompare;
 }
