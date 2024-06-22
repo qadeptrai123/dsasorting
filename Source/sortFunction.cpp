@@ -558,3 +558,146 @@ long long insertionSortWithCounting(int *array, int arraySize) {
     }
     return countCompare;
 }
+
+void swap(int *a, int *b) {
+    int t = *a;
+    *a = *b;
+    *b = t;
+}
+
+int partition(int *array, int low, int high) {
+    // select the rightmost element as pivot
+    int pivot = array[high];
+    
+    // pointer for greater element
+    int i = (low - 1);
+
+    // traverse each element of the array
+    // compare them with the pivot
+    for (int j = low; j < high; j++) {
+        if (array[j] <= pivot) {
+            // if element smaller than pivot is found
+            // swap it with the greater element pointed by i
+            i++;
+            // swap element at i with element at j
+            swap(&array[i], &array[j]);
+        }
+    }
+    
+    // swap pivot with the greater element at i
+    swap(&array[i + 1], &array[high]);
+    
+    // return the partition point
+    return (i + 1);
+}
+
+void quickSort(int *array, int low, int high) {
+    if (low < high) {
+        // find the pivot element such that
+        // elements smaller than pivot are on left of pivot
+        // elements greater than pivot are on right of pivot
+        int pi = partition(array, low, high);
+        
+        // recursive call on the left of pivot
+        quickSort(array, low, pi - 1);
+        
+        // recursive call on the right of pivot
+        quickSort(array, pi + 1, high);
+    }
+}
+
+int partition(int *array, int low, int high, long long &comparisons) {
+    // select the rightmost element as pivot
+    int pivot = array[high];
+    
+    // pointer for greater element
+    int i = (low - 1);
+
+    // traverse each element of the array
+    // compare them with the pivot
+    for (int j = low; j < high; j++) {
+        comparisons++; // Increase comparison count
+        if (array[j] <= pivot) {
+            // if element smaller than pivot is found
+            // swap it with the greater element pointed by i
+            i++;
+            // swap element at i with element at j
+            swap(&array[i], &array[j]);
+        }
+    }
+    
+    // swap pivot with the greater element at i
+    swap(&array[i + 1], &array[high]);
+    
+    // return the partition point
+    return (i + 1);
+}
+
+long long quickSortCounting(int *array, int low, int high) {
+    long long comparisons = 0;
+    if (low < high) {
+        // find the pivot element such that
+        // elements smaller than pivot are on left of pivot
+        // elements greater than pivot are on right of pivot
+        int pi = partition(array, low, high, comparisons);
+        
+        // recursive call on the left of pivot
+        comparisons += quickSortCounting(array, low, pi - 1);
+        
+        // recursive call on the right of pivot
+        comparisons += quickSortCounting(array, pi + 1, high);
+    }
+    return comparisons;
+}
+
+void bubbleSort(int* array, int size) {
+    for (int step = 0; step < size; ++step) {
+        for (int i = 0; i < size - step - 1; ++i) {
+            if (array[i] > array[i + 1]) {
+                swap(&array[i], &array[i + 1]);
+            }
+        }
+    }
+}
+
+long long bubbleSortCounting(int* array, int size) {
+    long long comparisons = 0;
+
+    for (int step = 0; step < size; ++step) {
+        for (int i = 0; i < size - step - 1; ++i) {
+            comparisons++; // Increase comparison count
+            if (array[i] > array[i + 1]) {
+                swap(&array[i], &array[i + 1]);
+            }
+        }
+    }
+
+    return comparisons;
+}
+
+void selectionSort(int* array, int size) {
+    for (int step = 0; step < size - 1; step++) {
+        int min_idx = step;
+        for (int i = step + 1; i < size; i++) {
+            if (array[i] < array[min_idx])
+                min_idx = i;
+        }
+        swap(&array[min_idx], &array[step]);
+    }
+}
+
+long long selectionSortCounting(int* arr, int size) {
+    long long comparisons = 0;
+    
+    for (int step = 0; step < size - 1; step++) {
+        int min_idx = step;
+        for (int i = step + 1; i < size; i++) {
+            comparisons++; // Increase comparison count
+            if (arr[i] < arr[min_idx])
+                min_idx = i;
+        }
+        swap(&arr[min_idx], &arr[step]); // Use the swap function
+    }
+    
+    return comparisons;
+}
