@@ -243,8 +243,8 @@ void countingSort(int* array, int arraySize){
     delete[]outputArray;
 }
 
-int countingSortWithCounting(int* array, int arraySize){
-    int countCompare = 0;
+long long countingSortWithCounting(int* array, int arraySize){
+    long long countCompare = 0;
 
     int maxValue = array[0];
     for (int i = 0; ++countCompare && i < arraySize; i++){
@@ -319,7 +319,7 @@ void radixSort(int* array, int arraySize){
     }
 }
 
-void countingSortForRadixWithCounting(int* array, int arraySize, int place, int& countCompare){
+void countingSortForRadixWithCounting(int* array, int arraySize, int place, long long& countCompare){
     int* output = new int[arraySize];
     int count[10] = {0};
 
@@ -343,8 +343,8 @@ void countingSortForRadixWithCounting(int* array, int arraySize, int place, int&
     delete[] output;
 }
 
-int radixSortWithCounting(int* array, int arraySize){
-    int countCompare = 0;
+long long radixSortWithCounting(int* array, int arraySize){
+    long long countCompare = 0;
     int largestElement = array[0];
     for (int i = 1; ++countCompare && i < arraySize; i++){
         largestElement = (array[i] > largestElement) ? array[i] : largestElement;
@@ -423,8 +423,8 @@ void flashSort(int* array, int arraySize){
     delete[] classCounts;
 }
 
-int flashSortWithCounting(int* array, int arraySize){
-    int countCompare = 0;
+long long flashSortWithCounting(int* array, int arraySize){
+    long long countCompare = 0;
     int numberClasses = 0.45 * arraySize;
     int* classCounts = new int[numberClasses]();
 
