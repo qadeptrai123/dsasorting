@@ -1,5 +1,6 @@
 #include "sortFunction.h"
-
+#include<algorithm>
+using namespace std;
 
 //Shell Sort
 //https://www.scholarhat.com/tutorial/datastructures/shell-sort-in-data-structures
@@ -242,8 +243,8 @@ void countingSort(int* array, int arraySize){
     delete[]outputArray;
 }
 
-int countingSortWithCounting(int* array, int arraySize){
-    int countCompare = 0;
+long long countingSortWithCounting(int* array, int arraySize){
+    long long countCompare = 0;
 
     int maxValue = array[0];
     for (int i = 0; ++countCompare && i < arraySize; i++){
@@ -318,7 +319,7 @@ void radixSort(int* array, int arraySize){
     }
 }
 
-void countingSortForRadixWithCounting(int* array, int arraySize, int place, int& countCompare){
+void countingSortForRadixWithCounting(int* array, int arraySize, int place, long long& countCompare){
     int* output = new int[arraySize];
     int count[10] = {0};
 
@@ -342,8 +343,8 @@ void countingSortForRadixWithCounting(int* array, int arraySize, int place, int&
     delete[] output;
 }
 
-int radixSortWithCounting(int* array, int arraySize){
-    int countCompare = 0;
+long long radixSortWithCounting(int* array, int arraySize){
+    long long countCompare = 0;
     int largestElement = array[0];
     for (int i = 1; ++countCompare && i < arraySize; i++){
         largestElement = (array[i] > largestElement) ? array[i] : largestElement;
@@ -422,8 +423,8 @@ void flashSort(int* array, int arraySize){
     delete[] classCounts;
 }
 
-int flashSortWithCounting(int* array, int arraySize){
-    int countCompare = 0;
+long long flashSortWithCounting(int* array, int arraySize){
+    long long countCompare = 0;
     int numberClasses = 0.45 * arraySize;
     int* classCounts = new int[numberClasses]();
 
@@ -485,10 +486,75 @@ int flashSortWithCounting(int* array, int arraySize){
 }
 
 //QA (ShakerSort, InsertionSort)
-void shakerSort(int *array, int numberOfElements) {
+void shakerSort(int *array, int arraySize) {
+    int left = 0;
+    int right = arraySize-1;
+    int k = 0;
+    while(left < right) {
+        for(int i = left; i < right; ++i) {
+            if(array[i] > array[i+1]) {
+                swap(array[i], array[i+1]);
+                k = i;
+            }
+        }
+        right = k;
+        for(int i = right; i > left; --i) {
+            if(array[i] < array[i-1]) {
+                swap(array[i], array[i-1]);
+                k = i;
+            }
+        }
+        left = k;
+    }
+}
+//https://www.iostream.co/article/bubble-sort-va-shaker-sort-01Si3U
 
+long long shakerSortWithCounting(int *array, int arraySize) {
+    int left = 0;
+    int right = arraySize-1;
+    int k = 0;
+    long long countCompare = 0;
+    while(++countCompare && left < right) {
+        for(int i = left; ++countCompare && i < right; ++i) {
+            if(++countCompare && array[i] > array[i+1]) {
+                swap(array[i], array[i+1]);
+                k = i;
+            }
+        }
+        right = k;
+        for(int i = right; ++countCompare && i > left; --i) {
+            if(++countCompare && array[i] < array[i-1]) {
+                swap(array[i], array[i-1]);
+                k = i;
+            }
+        }
+        left = k;
+    }
+    return countCompare;
 }
 
-int shakerSortWithCounting(int *array, int numberOfElements) {
+void insertionSort(int *array, int arraySize) {
+    for(int i = 1; i < arraySize; ++i) {
+        int key = array[i];
+        int j = i - 1;
+        while(j >= 0 && array[j] > key) {
+            array[j+1] = array[j];
+            j--;
+        }
+        array[j+1] = key;
+    }
+}
 
+long long insertionSortWithCounting(int *array, int arraySize) {
+    long long countCompare = 0;
+    for(int i = 1; ++countCompare && i < arraySize; ++i) {
+        int key = array[i];
+        int j = i - 1;
+        while(++countCompare && j >= 0 && ++countCompare && array[j] > key) {
+            array[j+1] = array[j];
+            j--;
+        }
+        array[j+1] = key;
+    }
+    return countCompare;
 }

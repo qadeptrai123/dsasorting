@@ -53,6 +53,11 @@ void doCmd1(string algorithm, string inputFile, string parameter) {
 }
 void doCmd2(string algorithm, int size, string order, string parameter) {
     cout << "CMD2\n";
+    int *a = new int[20];
+    int n = 20;
+    GenerateData(a, n, 0);
+    for(int i = 0; i < n; ++i) cout << a[i] << " ";
+    delete[] a;
 }
 void doCmd3(string algorithm, string input, string parameter) {
     cout << "CMD3\n";
