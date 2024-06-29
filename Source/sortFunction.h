@@ -33,3 +33,7 @@ void bubbleSort(int* array, int size);
 long long bubbleSortCounting(int* array, int size);
 void selectionSort(int* array, int size);
 long long selectionSortCounting(int* arr, int size);
+void insertionSort(int* array, int arraySize);
+long long insertionSortWithCounting(int* array, int arraySize);
+void shakerSort(int* array, int arraySize);
+long long shakerSortWithCounting(int* array, int arraySize);

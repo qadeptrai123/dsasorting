@@ -439,7 +439,7 @@ long long flashSortWithCounting(int* array, int arraySize){
     int maxValue = array[maxIndex];
 
     if (++countCompare && maxValue == minValue){
-        return;
+        return countCompare;
     }
 
     for (int i = 0; ++countCompare && i < arraySize; i++){
