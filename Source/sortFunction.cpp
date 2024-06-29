@@ -358,9 +358,10 @@ long long radixSortWithCounting(int* array, int arraySize){
 //https://www.w3resource.com/javascript-exercises/searching-and-sorting-algorithm/searching-and-sorting-algorithm-exercise-12.php#google_vignette
 
 void flashSort(int* array, int arraySize){
+    
     int numberClasses = 0.45 * arraySize;
     int* classCounts = new int[numberClasses]();
-
+    
     //Find largest and smallest element
     int minValue = array[0];
     int maxIndex = 0;
@@ -371,6 +372,7 @@ void flashSort(int* array, int arraySize){
     int maxValue = array[maxIndex];
 
     if (maxValue == minValue){
+        // cout << "oday\n";
         return;
     }
 
@@ -395,8 +397,9 @@ void flashSort(int* array, int arraySize){
     int i = 0;
     int j = 0;
     int k = numberClasses - 1;
-
+// cout << "hj";
     while (move < (arraySize - 1)){
+        // cout << "hj";
         while (j > (classCounts[i] - 1)){
             j++;
             k = (numberClasses - 1) * (array[i] - minValue) / (maxValue - minValue);

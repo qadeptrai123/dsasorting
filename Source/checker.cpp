@@ -13,12 +13,15 @@ int checkSorted(int *a, int n) {
 }
 
 int main() {
-    int n = 500000;
-    int t = 100;
+    int n = 20;
+    int t = 1;
     while(t--) {
         int *a = new int[n];
         GenerateData(a, n, 0);
-        heapSort(a, n);
+        for(int i = 0; i < n; ++i) cout << a[i] << " ";
+        cout << "\n";
+        flashSort(a, n);
+        for(int i = 0; i < n; ++i) cout << a[i] << " ";
         int ok = checkSorted(a, n);
         if(ok == 0) {
             cout << "Bug\n";
