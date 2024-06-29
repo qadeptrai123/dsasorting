@@ -3,7 +3,7 @@
 #include<string>
 #include<string.h>
 using namespace std;
-
+//hello
 int isFileTxt(string input) {
     int n = input.length();
     if('0' <= input[n-1] && input[n-1] <= '9') return 0;
