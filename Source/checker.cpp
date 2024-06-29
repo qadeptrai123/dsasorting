@@ -13,15 +13,15 @@ int checkSorted(int *a, int n) {
 }
 
 int main() {
-    int n = 20;
-    int t = 1;
+    int n = 10000;
+    int t = 100;
     while(t--) {
         int *a = new int[n];
         GenerateData(a, n, 0);
-        for(int i = 0; i < n; ++i) cout << a[i] << " ";
-        cout << "\n";
-        flashSort(a, n);
-        for(int i = 0; i < n; ++i) cout << a[i] << " ";
+        // for(int i = 0; i < n; ++i) cout << a[i] << " ";
+        // cout << "\n";
+        shakerSort(a, n);
+        // for(int i = 0; i < n; ++i) cout << a[i] << " ";
         int ok = checkSorted(a, n);
         if(ok == 0) {
             cout << "Bug\n";

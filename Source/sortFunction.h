@@ -3,19 +3,18 @@
 #include<cmath>
 #include<stdlib.h>
 
-typedef unsigned long long ull;
 
-void shellSort(int *array, int numberOfElements);
-ull shellSortWithCounting(int *array, int numberOfElements);
+void shellSort(int *array, int arraySize);
+long long shellSortWithCounting(int *array, int arraySize);
 void swapElement(int *num1, int *num2);
-void heapSort(int *array, int numberOfElements);
-void heapify(int *array, int numberOfElements, int currentIndex);
-void heapifyWithCounting(int *array, int numberOfElements, int currentIndex, ull &countCompare);
-ull heapSortWithCounting(int *array, int numberOfElements);
+void heapSort(int *array, int arraySize);
+void heapify(int *array, int arraySize, int currentIndex);
+void heapifyWithCounting(int *array, int arraySize, int currentIndex, long long &countCompare);
+long long heapSortWithCounting(int *array, int arraySize);
 void mergeTwoSubArrays(int *array, int left, int middleIndex, int right);
 void mergeSort(int *array, int leftIndex, int rightIndex);
-void mergeTwoSubArraysWithCounting(int *array, int left, int middleIndex, int right, ull &countCompare);
-ull mergeSortWithCounting(int *array, int leftIndex, int rightIndex, ull &countCompare);
+void mergeTwoSubArraysWithCounting(int *array, int left, int middleIndex, int right, long long &countCompare);
+long long mergeSortWithCounting(int *array, int leftIndex, int rightIndex, long long &countCompare);
 void countingSort (int* array, int arraySize);
 long long countingSortWithCounting(int* array, int arraySize);
 void countingSortForRadix(int* array, int arraySize, int place);

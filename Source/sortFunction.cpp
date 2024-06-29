@@ -1,7 +1,6 @@
 #include "sortFunction.h"
 #include <algorithm>
 using namespace std;
-typedef unsigned long long ull;
 
 //Shell Sort
 //https://www.scholarhat.com/tutorial/datastructures/shell-sort-in-data-structures
@@ -22,8 +21,8 @@ void shellSort(int *array, int arraySize) {
     }
 }
 // Shell Sort with Counting 
-ull shellSortWithCounting(int *array, int arraySize) {
-    ull countCompare = 0;
+long long shellSortWithCounting(int *array, int arraySize) {
+    long long countCompare = 0;
     int i, j, store;
     int interval = arraySize / 2; 
     while (++countCompare && interval > 0) {
@@ -73,7 +72,7 @@ void heapify(int *array, int arraySize, int currentIndex) {
 }
 
 // Heap Sort with Counting
-void heapifyWithCounting(int *array, int arraySize, int currentIndex, ull &countCompare) {
+void heapifyWithCounting(int *array, int arraySize, int currentIndex, long long &countCompare) {
     int indexOfLargestElement = currentIndex; 
     int left = 2 * currentIndex + 1; 
     int right = 2 * currentIndex + 2; 
@@ -87,9 +86,9 @@ void heapifyWithCounting(int *array, int arraySize, int currentIndex, ull &count
         heapifyWithCounting(array, arraySize, indexOfLargestElement, countCompare); 
     }
 }
-ull heapSortWithCounting(int *array, int arraySize) {
+long long heapSortWithCounting(int *array, int arraySize) {
     int i;
-    ull countCompare = 0;
+    long long countCompare = 0;
     for (i = arraySize / 2 - 1; (++countCompare) && (i >= 0); i--)
         heapifyWithCounting(array, arraySize, i, countCompare); 
   
@@ -152,7 +151,7 @@ void mergeSort(int *array, int leftIndex, int rightIndex) {
 }
 
 //merge sort with counting 
-void mergeTwoSubArraysWithCounting(int *array, int left, int middleIndex, int right, ull &countCompare) {
+void mergeTwoSubArraysWithCounting(int *array, int left, int middleIndex, int right, long long &countCompare) {
     int i;
     int subArrayOneSize = middleIndex - left + 1; 
     int subArrayTwoSize = right - middleIndex; 
@@ -194,7 +193,7 @@ void mergeTwoSubArraysWithCounting(int *array, int left, int middleIndex, int ri
     delete[] leftArray;
     delete[] rightArray;
 }
-ull mergeSortWithCounting(int *array, int leftIndex, int rightIndex, ull &countCompare) {
+long long mergeSortWithCounting(int *array, int leftIndex, int rightIndex, long long &countCompare) {
     if ( ++countCompare && (leftIndex >= rightIndex))
         return countCompare;
     int middleIndex = leftIndex + (rightIndex - leftIndex) / 2; 
