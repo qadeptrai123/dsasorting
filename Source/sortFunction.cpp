@@ -619,13 +619,13 @@ int partition(int *array, int low, int high, long long &comparisons) {
     swap(array[i + 1], array[high]);
     return (i + 1);
 }
-long long quickSortCounting(int *array, int low, int high) {
+long long quickSortWithCounting(int *array, int low, int high) {
     long long comparisons = 0;
     if (low < high) {
         int pi = partition(array, low, high, comparisons);
         
-        comparisons += quickSortCounting(array, low, pi - 1);
-        comparisons += quickSortCounting(array, pi + 1, high);
+        comparisons += quickSortWithCounting(array, low, pi - 1);
+        comparisons += quickSortWithCounting(array, pi + 1, high);
     }
     return comparisons;
 }
@@ -640,7 +640,7 @@ void bubbleSort(int* array, int size) {
     }
 }
 
-long long bubbleSortCounting(int* array, int size) {
+long long bubbleSortWithCounting(int* array, int size) {
     long long comparisons = 0;
 
     for (int step = 0; step < size; ++step) {
@@ -666,7 +666,7 @@ void selectionSort(int* array, int size) {
     }
 }
 
-long long selectionSortCounting(int* arr, int size) {
+long long selectionSortWithCounting(int* arr, int size) {
     long long comparisons = 0;
     
     for (int step = 0; step < size - 1; step++) {

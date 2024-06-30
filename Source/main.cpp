@@ -9,6 +9,39 @@ using namespace std;
 
 using namespace std::chrono;
 
+long long (*getSortCounting(string algorithm))(int*, int) {
+    if (algorithm == "bubble-sort") {
+        return &bubbleSortWithCounting;
+    } 
+    else if (algorithm == "selection-sort") {
+        return &selectionSortWithCounting;
+    }
+    else if (algorithm == "shaker-sort") {
+        return &shakerSortWithCounting;
+    } 
+    else if (algorithm == "heap-sort") {
+        return &heapSortWithCounting;
+    }
+    else if (algorithm == "merge-sort") {
+        return &mergeSortWithCounting;
+    }
+    else if (algorithm == "quick-sort") {
+        return &quickSortCounting;
+    }
+    else if (algorithm == "counting-sort") {
+        return &countingSortWithCounting;
+    }
+    else if (algorithm == "radix-sort") {
+        return &radixSortWithCounting;
+    }
+    else if (algorithm == "flash-sort") {
+        return &flashSortWithCounting;
+    }
+    else {
+        return nullptr;  // Nếu không khớp với thuật toán nào, trả về nullptr
+    }
+}
+
 void (*getSort(string algorithm))(int*, int) {
     if (algorithm == "bubble-sort") {
         return &bubbleSort;
@@ -40,6 +73,43 @@ void (*getSort(string algorithm))(int*, int) {
     else {
         return nullptr;  // Nếu không khớp với thuật toán nào, trả về nullptr
     }
+}
+
+string getAlgorithmName(string algorithm) {
+    if(algorithm == "shell-sort") {
+        return "Shell Sort";
+    }
+    else if(algorithm == "heap-sort") {
+        return "Heap Sort";
+    }
+    else if(algorithm == "merge-sort") {
+        return "Merge Sort";
+    }
+    else if(algorithm == "counting-sort") {
+        return "Counting Sort";
+    }
+    else if(algorithm == "radix-sort") {
+        return "Radix Sort";
+    }
+    else if(algorithm == "flash-sort") {
+        return "Flash Sort";
+    }
+    else if(algorithm == "insertion-sort") {
+        return "Insertion Sort";
+    }
+    else if(algorithm == "selection-sort") {
+        return "Selection Sort";
+    }
+    else if(algorithm == "bubble-sort") {
+        return "Bubble Sort";
+    }
+    else if(algorithm == "quick-sort") {
+        return "Quick Sort";
+    }
+    else if(algorithm == "shaker-sort") {
+        return "Shaker Sort";
+    }
+    return "";
 }
 
 int isFileTxt(string input) {
@@ -91,83 +161,9 @@ void writeArrayToFile(int *a, int n, string fileName) {
 }
 
 void doSortAlgorithm(string algorithm, int *array, int arraySize, string parameter) {
-    // if(algorithm == "shell-sort") {
-    //     // if(parameter == "-time" || paramer)
-    // }
-    // else if(algorithm == "heap-sort") {
-    //     heapSort(array, arraySize);
-    // }
-    // else if(algorithm == "merge-sort") {
-    //     mergeSort(array, 0, arraySize-1);
-    // }
-    // else if(algorithm == "counting-sort") {
-    //     countingSort(array, arraySize);
-    // }
-    // else if(algorithm == "radix-sort") {
-    //     radixSort(array, arraySize);
-    // }
-    // else if(algorithm == "flash-sort") {
-    //     flashSort(array, arraySize);
-    // }
-    // else if(algorithm == "insertion-sort") {
-    //     insertionSort(array, arraySize);
-    // }
-    // else if(algorithm == "selection-sort") {
-    //     selectionSort(array, arraySize);
-    // }
-    // else if(algorithm == "bubble-sort") {
-    //     cout << "Running time: " << benchmark(array, arraySize, bubbleSort) << "\n";
-    // }
-    // else if(algorithm == "quick-sort") {
-    //     quickSort(array, 0, arraySize-1);
-    // }
-    // else if(algorithm == "shaker-sort") {
-    //     shakerSort(array, arraySize);
-    // }
-    // else {
-    //     cout << "Invalid algorithm\n";
-    //     exit(0);
-    // }
     if(parameter == "-both" || parameter == "-time") {
         cout << "Running time: " << benchmark(array, arraySize, algorithm) << "\n";
     }
-}
-
-string getAlgorithmName(string algorithm) {
-    if(algorithm == "shell-sort") {
-        return "Shell Sort";
-    }
-    else if(algorithm == "heap-sort") {
-        return "Heap Sort";
-    }
-    else if(algorithm == "merge-sort") {
-        return "Merge Sort";
-    }
-    else if(algorithm == "counting-sort") {
-        return "Counting Sort";
-    }
-    else if(algorithm == "radix-sort") {
-        return "Radix Sort";
-    }
-    else if(algorithm == "flash-sort") {
-        return "Flash Sort";
-    }
-    else if(algorithm == "insertion-sort") {
-        return "Insertion Sort";
-    }
-    else if(algorithm == "selection-sort") {
-        return "Selection Sort";
-    }
-    else if(algorithm == "bubble-sort") {
-        return "Bubble Sort";
-    }
-    else if(algorithm == "quick-sort") {
-        return "Quick Sort";
-    }
-    else if(algorithm == "shaker-sort") {
-        return "Shaker Sort";
-    }
-    return "";
 }
 
 int order(string inputOrder) {
