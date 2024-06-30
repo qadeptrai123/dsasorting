@@ -36,9 +36,8 @@ long long flashSortWithCounting(int* array, int arraySize);
 int partition(int *array, int low, int high);
 void quickSort(int *array, int arraySize);
 void doQuickSort(int *array, int low, int high);
-int partition(int *array, int low, int high, long long &comparisons);
-
-long long quickSortWithCounting(int *array, int low, int high);
+int partitionCounting(int *array, int low, int high, long long &comparisons);
+long long quickSortCounting(int *array, int low, int high);
 
 void bubbleSort(int* array, int size);
 long long bubbleSortWithCounting(int* array, int size);

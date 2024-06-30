@@ -597,7 +597,7 @@ void doQuickSort(int *array, int low, int high) {
         doQuickSort(array, pi + 1, high);
     }
 }
-int partition(int *array, int low, int high, long long &comparisons) {
+int partitionCounting(int *array, int low, int high, long long &comparisons) {
     // Choosing pivot using median-of-three strategy
     int mid = low + (high - low) / 2;
     int pivotIndex = (array[low] < array[mid]) ?
@@ -622,7 +622,7 @@ int partition(int *array, int low, int high, long long &comparisons) {
 long long quickSortWithCounting(int *array, int low, int high) {
     long long comparisons = 0;
     if (low < high) {
-        int pi = partition(array, low, high, comparisons);
+        int pi = partitionCounting(array, low, high, comparisons);
         
         comparisons += quickSortWithCounting(array, low, pi - 1);
         comparisons += quickSortWithCounting(array, pi + 1, high);
