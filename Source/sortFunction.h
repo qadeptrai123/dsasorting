@@ -1,6 +1,8 @@
 #pragma once
 #include<iostream>
 #include<cmath>
+#include<string>
+#include<string.h>
 #include<stdlib.h>
 
 
@@ -36,3 +38,4 @@ void insertionSort(int* array, int arraySize);
 long long insertionSortWithCounting(int* array, int arraySize);
 void shakerSort(int* array, int arraySize);
 long long shakerSortWithCounting(int* array, int arraySize);
+

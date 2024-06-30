@@ -2,6 +2,9 @@
 #include <algorithm>
 using namespace std;
 
+
+
+
 //Shell Sort
 //https://www.scholarhat.com/tutorial/datastructures/shell-sort-in-data-structures
 void shellSort(int *array, int arraySize) {
@@ -141,12 +144,17 @@ void mergeTwoSubArrays(int *array, int left, int middleIndex, int right) {
     delete[] leftArray;
     delete[] rightArray;
 }
-void mergeSort(int *array, int leftIndex, int rightIndex) {
+
+void mergeSort(int *array, int arraySize) {
+    doMergeSort(array, 0, arraySize - 1);
+}
+
+void doMergeSort(int *array, int leftIndex, int rightIndex) {
     if (leftIndex >= rightIndex)
         return;
     int middleIndex = leftIndex + (rightIndex - leftIndex) / 2;
-    mergeSort(array, leftIndex, middleIndex);
-    mergeSort(array, middleIndex + 1, rightIndex);
+    doMergeSort(array, leftIndex, middleIndex);
+    doMergeSort(array, middleIndex + 1, rightIndex);
     mergeTwoSubArrays(array, leftIndex, middleIndex, rightIndex);
 }
 
@@ -577,12 +585,16 @@ int partition(int *array, int low, int high) {
     return (i + 1);
 }
 
-void quickSort(int *array, int low, int high) {
+void quickSort(int *array, int arraySize) {
+    doQuickSort(array, 0, arraySize - 1);
+}
+
+void doQuickSort(int *array, int low, int high) {
     if (low < high) {
         int pi = partition(array, low, high);
         
-        quickSort(array, low, pi - 1);
-        quickSort(array, pi + 1, high);
+        doQuickSort(array, low, pi - 1);
+        doQuickSort(array, pi + 1, high);
     }
 }
 int partition(int *array, int low, int high, long long &comparisons) {
@@ -669,3 +681,5 @@ long long selectionSortCounting(int* arr, int size) {
     
     return comparisons;
 }
+
+
