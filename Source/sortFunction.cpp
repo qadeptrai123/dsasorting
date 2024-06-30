@@ -201,15 +201,17 @@ void mergeTwoSubArraysWithCounting(int *array, int left, int middleIndex, int ri
     delete[] leftArray;
     delete[] rightArray;
 }
-long long mergeSortWithCounting(int *array, int leftIndex, int rightIndex, long long &countCompare) {
+
+long long doMergeSortWithCounting(int *array, int leftIndex, int rightIndex, long long &countCompare) {
     if ( ++countCompare && (leftIndex >= rightIndex))
         return countCompare;
     int middleIndex = leftIndex + (rightIndex - leftIndex) / 2; 
-    mergeSortWithCounting(array, leftIndex, middleIndex, countCompare);
-    mergeSortWithCounting(array, middleIndex + 1, rightIndex, countCompare);
+    doMergeSortWithCounting(array, leftIndex, middleIndex, countCompare);
+    doMergeSortWithCounting(array, middleIndex + 1, rightIndex, countCompare);
     mergeTwoSubArraysWithCounting(array, leftIndex, middleIndex, rightIndex, countCompare);
     return countCompare;
 }
+
 
 //Counting Sort
 //https://www.programiz.com/dsa/counting-sort
@@ -619,6 +621,7 @@ int partitionCounting(int *array, int low, int high, long long &comparisons) {
     swap(array[i + 1], array[high]);
     return (i + 1);
 }
+
 long long quickSortWithCounting(int *array, int low, int high) {
     long long comparisons = 0;
     if (low < high) {

@@ -26,7 +26,7 @@ long long (*getSortCounting(string algorithm))(int*, int) {
         return &mergeSortWithCounting;
     }
     else if (algorithm == "quick-sort") {
-        return &quickSortCounting;
+        return &quickSortWithCounting;
     }
     else if (algorithm == "counting-sort") {
         return &countingSortWithCounting;
@@ -37,9 +37,13 @@ long long (*getSortCounting(string algorithm))(int*, int) {
     else if (algorithm == "flash-sort") {
         return &flashSortWithCounting;
     }
-    else {
-        return nullptr;  // Nếu không khớp với thuật toán nào, trả về nullptr
+    else if (algorithm == "shell-sort") {
+        return &shellSortWithCounting;
     }
+    else if (algorithm == "insertion-sort") {
+        return &insertionSortWithCounting;
+    }
+    return nullptr;
 }
 
 void (*getSort(string algorithm))(int*, int) {

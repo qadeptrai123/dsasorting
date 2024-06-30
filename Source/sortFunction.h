@@ -37,13 +37,13 @@ int partition(int *array, int low, int high);
 void quickSort(int *array, int arraySize);
 void doQuickSort(int *array, int low, int high);
 int partitionCounting(int *array, int low, int high, long long &comparisons);
-long long quickSortCounting(int *array, int low, int high);
+long long quickSortWithCounting(int *array, int low, int high);
 
 void bubbleSort(int* array, int size);
 long long bubbleSortWithCounting(int* array, int size);
 
 void selectionSort(int* array, int size);
-long long selectionSortCounting(int* arr, int size);
+long long selectionSortWithCounting(int* arr, int size);
 
 void insertionSort(int* array, int arraySize);
 long long insertionSortWithCounting(int* array, int arraySize);
