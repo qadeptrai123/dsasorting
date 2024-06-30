@@ -18,8 +18,8 @@ long long heapSortWithCounting(int *array, int arraySize);
 void mergeTwoSubArrays(int *array, int left, int middleIndex, int right);
 void mergeSort(int *array, int arraySize);
 void doMergeSort(int *array, int leftIndex, int rightIndex);
-void mergeTwoSubArraysWithCounting(int *array, int left, int middleIndex, int right, long long &countCompare);
-long long mergeSortWithCounting(int *array, int leftIndex, int rightIndex, long long &countCompare);
+long long mergeTwoSubArraysWithCounting(int *array, int left, int middleIndex, int right);
+long long mergeSortWithCounting(int *array, int leftIndex, int rightIndex);
 
 
 void countingSort (int* array, int arraySize);

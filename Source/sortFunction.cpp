@@ -159,8 +159,9 @@ void doMergeSort(int *array, int leftIndex, int rightIndex) {
 }
 
 //merge sort with counting 
-void mergeTwoSubArraysWithCounting(int *array, int left, int middleIndex, int right, long long &countCompare) {
+long long mergeTwoSubArraysWithCounting(int *array, int left, int middleIndex, int right) {
     int i;
+    long long countCompare = 0;
     int subArrayOneSize = middleIndex - left + 1; 
     int subArrayTwoSize = right - middleIndex; 
 
@@ -200,16 +201,22 @@ void mergeTwoSubArraysWithCounting(int *array, int left, int middleIndex, int ri
     }
     delete[] leftArray;
     delete[] rightArray;
+    return countCompare;
 }
 
-long long doMergeSortWithCounting(int *array, int leftIndex, int rightIndex, long long &countCompare) {
+long long doMergeSortWithCounting(int *array, int leftIndex, int rightIndex) {
+    long long countCompare = 0;
     if ( ++countCompare && (leftIndex >= rightIndex))
         return countCompare;
     int middleIndex = leftIndex + (rightIndex - leftIndex) / 2; 
-    doMergeSortWithCounting(array, leftIndex, middleIndex, countCompare);
-    doMergeSortWithCounting(array, middleIndex + 1, rightIndex, countCompare);
-    mergeTwoSubArraysWithCounting(array, leftIndex, middleIndex, rightIndex, countCompare);
+    countCompare += doMergeSortWithCounting(array, leftIndex, middleIndex);
+    countCompare += doMergeSortWithCounting(array, middleIndex + 1, rightIndex);
+    countCompare += mergeTwoSubArraysWithCounting(array, leftIndex, middleIndex, rightIndex);
     return countCompare;
+}
+
+long long mergeSortWithCounting(int *array, int arraySize) {
+    return doMergeSortWithCounting(array, 0, arraySize - 1);
 }
 
 
@@ -622,15 +629,19 @@ int partitionCounting(int *array, int low, int high, long long &comparisons) {
     return (i + 1);
 }
 
-long long quickSortWithCounting(int *array, int low, int high) {
+long long doQuickSortWithCounting(int *array, int low, int high) {
     long long comparisons = 0;
     if (low < high) {
         int pi = partitionCounting(array, low, high, comparisons);
         
-        comparisons += quickSortWithCounting(array, low, pi - 1);
-        comparisons += quickSortWithCounting(array, pi + 1, high);
+        comparisons += doQuickSortWithCounting(array, low, pi - 1);
+        comparisons += doQuickSortWithCounting(array, pi + 1, high);
     }
     return comparisons;
+}
+
+long long quickSortWithCounting(int *array, int arraySize) {
+    return doQuickSortWithCounting(array, 0, arraySize - 1);
 }
 
 void bubbleSort(int* array, int size) {
