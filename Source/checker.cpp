@@ -20,7 +20,7 @@ int main() {
         GenerateData(a, n, 0);
         // for(int i = 0; i < n; ++i) cout << a[i] << " ";
         // cout << "\n";
-        shakerSort(a, n);
+        quickSort(a, 0, n-1);
         // for(int i = 0; i < n; ++i) cout << a[i] << " ";
         int ok = checkSorted(a, n);
         if(ok == 0) {
