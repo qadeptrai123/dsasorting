@@ -116,6 +116,22 @@ string getAlgorithmName(string algorithm) {
     return "";
 }
 
+int order(string inputOrder) {
+    if(inputOrder == "-rand") return 0;
+    if(inputOrder == "-nsorted") return 3;
+    if(inputOrder == "-sorted") return 1;
+    if(inputOrder == "-rev") return 2;
+    return -1;
+}
+
+string getNameOrder(string inputOrder) {
+    if(inputOrder == "-rand") return "Random";
+    if(inputOrder == "-nsorted") return "Nearly Sorted";
+    if(inputOrder == "-sorted") return "Sorted";
+    if(inputOrder == "-rev") return "Reverse";
+    return "";
+}
+
 int isFileTxt(string input) {
     int n = input.length();
     if('0' <= input[n-1] && input[n-1] <= '9') return 0;
@@ -164,26 +180,36 @@ void writeArrayToFile(int *a, int n, string fileName) {
     fout.close();
 }
 
+int checkSorted(int *a, int n) {
+    for(int i = 0; i < n-1; ++i) {
+        if(a[i] > a[i+1]) return 0;
+    }
+    return 1;
+}
+
 void doSortAlgorithm(string algorithm, int *array, int arraySize, string parameter) {
-    if(parameter == "-both" || parameter == "-time") {
+    if(parameter == "-both") {
+        int *dupArray = new int[arraySize];
+        for(int i = 0; i < arraySize; ++i) dupArray[i] = array[i];
         cout << "Running time: " << benchmark(array, arraySize, algorithm) << "\n";
+        cout << "Comparisons: " << getSortCounting(algorithm)(dupArray, arraySize) << "\n";
+        delete[] dupArray;
+    }
+    else if(parameter == "-time") {
+        cout << "Running time: " << benchmark(array, arraySize, algorithm) << "\n";
+    }
+    else if(parameter == "-comp") {
+        cout << "Comparisons: " << getSortCounting(algorithm)(array, arraySize) << "\n";
     }
 }
 
-int order(string inputOrder) {
-    if(inputOrder == "-rand") return 0;
-    if(inputOrder == "-nsorted") return 3;
-    if(inputOrder == "-sorted") return 1;
-    if(inputOrder == "-rev") return 2;
-    return -1;
-}
-
-string getNameOrder(string inputOrder) {
-    if(inputOrder == "-rand") return "Random";
-    if(inputOrder == "-nsorted") return "Nearly Sorted";
-    if(inputOrder == "-sorted") return "Sorted";
-    if(inputOrder == "-rev") return "Reverse";
-    return "";
+void doCompareSortAlgorithm(string algorithm1, string algorithm2, int *array, int arraySize) {
+    long long time1 = benchmark(array, arraySize, algorithm1);
+    long long time2 = benchmark(array, arraySize, algorithm2);
+    cout << "Running time: " << time1 << " | " << time2 << "\n";
+    long long comp1 = getSortCounting(algorithm1)(array, arraySize);
+    long long comp2 = getSortCounting(algorithm2)(array, arraySize);
+    cout << "Comparisons: " << comp1 << " | " << comp2 << "\n";
 }
 
 void doCmd1(string algorithm, string inputFile, string parameter) {
@@ -196,7 +222,6 @@ void doCmd1(string algorithm, string inputFile, string parameter) {
    
     cout << "Input size: " << n << "\n";
     cout << "-----------------\n";
-    
     
     doSortAlgorithm(algorithm, a, n, parameter);
     
@@ -230,25 +255,46 @@ void doCmd3(string algorithm, int n, string parameter) {
     cout << "\n";
     int *a = new int[n];
     GenerateData(a, n, 0);
+    cout << "Input order: " << getNameOrder("-rand") << "\n";
+    cout << "-----------------\n";
     writeArrayToFile(a, n, "input_1.txt");
     doSortAlgorithm(algorithm, a, n, parameter);
-    
+    cout << "\n";
+
     GenerateData(a, n, 3);
+    cout << "Input order: " << getNameOrder("-nsorted") << "\n";
+    cout << "-----------------\n";
     writeArrayToFile(a, n, "input_2.txt");
     doSortAlgorithm(algorithm, a, n, parameter);
+    cout << "\n";
 
     GenerateData(a, n, 1);
+    cout << "Input order: " << getNameOrder("-sorted") << "\n";
+    cout << "-----------------\n";
     writeArrayToFile(a, n, "input_3.txt");
     doSortAlgorithm(algorithm, a, n, parameter);
-    
+    cout << "\n";
+
     GenerateData(a, n, 2);
+    cout << "Input order: " << getNameOrder("-rev") << "\n";
+    cout << "-----------------\n";
     writeArrayToFile(a, n, "input_4.txt");
     doSortAlgorithm(algorithm, a, n, parameter);
+    cout << "\n";
 
+    delete[] a;
 }
 
 void doCmd4(string algorithm1, string algorithm2, string inputFile) {
     cout << "CMD4\n";
+    cout << "Algorithm: " << getAlgorithmName(algorithm1) << " | " << getAlgorithmName(algorithm2) << "\n";
+    cout << "Input file: " << inputFile << "\n";
+    int n;
+    int *a = readArrayFromFile(inputFile, n);
+    cout << "Input size: " << n << "\n";
+    cout << "-----------------\n";
+    doCompareSortAlgorithm(algorithm1, algorithm2, a, n);
+    delete[] a;
 }
 
 void doCmd5(string algorithm1, string algorithm2, int inputSize, string inputOrder) {
@@ -262,7 +308,25 @@ int main(int argc, char *argv[]) {
     //cmd4: [Execution file] -c [Algorithm 1] [Algorithm 2] [Given input]
     //cmd5: [Execution file] -c [Algorithm 1] [Algorithm 2] [Input size] [Input order]
 
-
+    if(strcmp(argv[1], "-check") == 0) {
+        int n = toInt(argv[2]);
+        int t = toInt(argv[3]);
+        string inputOrder = argv[4];
+        string algorithm = argv[5];
+        while(t--) {
+            int *a = new int[n];
+            GenerateData(a, n, order(inputOrder));
+            getSort(algorithm)(a, n);
+            int ok = checkSorted(a, n);
+            if(ok == 0) {
+                cout << "Bug\n";
+                return 0;
+            }
+            delete[] a;
+        }
+        cout << "Passed\n";
+        return 0;
+    }
     int type = strcmp(argv[1], "-a") == 0 ? 1 : 0;
     //cout << type << "\n";
     //cout << argc << "\n";

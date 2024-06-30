@@ -19,8 +19,8 @@ void mergeTwoSubArrays(int *array, int left, int middleIndex, int right);
 void mergeSort(int *array, int arraySize);
 void doMergeSort(int *array, int leftIndex, int rightIndex);
 long long mergeTwoSubArraysWithCounting(int *array, int left, int middleIndex, int right);
-long long mergeSortWithCounting(int *array, int leftIndex, int rightIndex);
-
+long long doMergeSortWithCounting(int *array, int leftIndex, int rightIndex);
+long long mergeSortWithCounting(int *array, int arraySize);
 
 void countingSort (int* array, int arraySize);
 long long countingSortWithCounting(int* array, int arraySize);
@@ -37,7 +37,8 @@ int partition(int *array, int low, int high);
 void quickSort(int *array, int arraySize);
 void doQuickSort(int *array, int low, int high);
 int partitionCounting(int *array, int low, int high, long long &comparisons);
-long long quickSortWithCounting(int *array, int low, int high);
+long long doQuickSortWithCounting(int *array, int low, int high);
+long long quickSortWithCounting(int *array, int arraySize);
 
 void bubbleSort(int* array, int size);
 long long bubbleSortWithCounting(int* array, int size);
