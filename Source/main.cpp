@@ -12,9 +12,32 @@ using namespace std::chrono;
 void (*getSort(string algorithm))(int*, int) {
     if (algorithm == "bubble-sort") {
         return &bubbleSort;
-    } else if (algorithm == "selection-sort") {
+    } 
+    else if (algorithm == "selection-sort") {
         return &selectionSort;
-    } else {
+    }
+    else if (algorithm == "shaker-sort") {
+        return &shakerSort;
+    } 
+    else if (algorithm == "heap-sort") {
+        return &heapSort;
+    }
+    else if (algorithm == "merge-sort") {
+        return &mergeSort;
+    }
+    else if (algorithm == "quick-sort") {
+        return &quickSort;
+    }
+    else if (algorithm == "counting-sort") {
+        return &countingSort;
+    }
+    else if (algorithm == "radix-sort") {
+        return &radixSort;
+    }
+    else if (algorithm == "flash-sort") {
+        return &flashSort;
+    }
+    else {
         return nullptr;  // Nếu không khớp với thuật toán nào, trả về nullptr
     }
 }

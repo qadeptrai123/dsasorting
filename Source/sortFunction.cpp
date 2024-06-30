@@ -44,11 +44,11 @@ long long shellSortWithCounting(int *array, int arraySize) {
 }
 //Heap Sort
 //https://www.programiz.com/dsa/heap-sort
-void swapElement(int *num1, int *num2) {
-    *num1 = *num1 + *num2;
-    *num2 = *num1 - *num2; //this function requires 3 assignments
-    *num1 = *num1 - *num2;
-}
+// void swapElement(int *num1, int *num2) {
+//     *num1 = *num1 + *num2;
+//     *num2 = *num1 - *num2; //this function requires 3 assignments
+//     *num1 = *num1 - *num2;
+// }
 void heapify(int *array, int arraySize, int currentIndex) {
     int indexOfLargestElement = currentIndex;
     int left = 2 * currentIndex + 1;
@@ -59,7 +59,7 @@ void heapify(int *array, int arraySize, int currentIndex) {
     if (right < arraySize && array[right] > array[indexOfLargestElement])
         indexOfLargestElement = right;
     if (indexOfLargestElement != currentIndex) {
-        swapElement(&array[currentIndex], &array[indexOfLargestElement]);
+        swap(array[currentIndex], array[indexOfLargestElement]);
         heapify(array, arraySize, indexOfLargestElement);
     }
 }
@@ -69,7 +69,7 @@ void heapify(int *array, int arraySize, int currentIndex) {
         heapify(array, arraySize, i);
   
     for (i = arraySize - 1; i >= 0; i--) {
-        swapElement(&array[0], &array[i]);
+        swap(array[0], array[i]);
         heapify(array, i, 0);
     }
 }
@@ -85,7 +85,7 @@ void heapifyWithCounting(int *array, int arraySize, int currentIndex, long long 
     if ((countCompare += 3) && (right < arraySize && array[right] > array[indexOfLargestElement]))
         indexOfLargestElement = right; 
     if ((++countCompare) && (indexOfLargestElement != currentIndex)) {
-        swapElement(&array[currentIndex], &array[indexOfLargestElement]);
+        swap(array[currentIndex], array[indexOfLargestElement]);
         heapifyWithCounting(array, arraySize, indexOfLargestElement, countCompare); 
     }
 }
@@ -96,7 +96,7 @@ long long heapSortWithCounting(int *array, int arraySize) {
         heapifyWithCounting(array, arraySize, i, countCompare); 
   
     for (i = arraySize - 1; (++countCompare) && (i >= 0); i--) {
-        swapElement(&array[0], &array[i]);
+        swap(array[0], array[i]);
         heapifyWithCounting(array, i, 0, countCompare); 
     }
     return countCompare;
@@ -557,11 +557,11 @@ long long insertionSortWithCounting(int *array, int arraySize) {
     return countCompare;
 }
 
-void swap(int *a, int *b) {
-    int t = *a;
-    *a = *b;
-    *b = t;
-}
+// void swap(int *a, int *b) {
+//     int t = *a;
+//     *a = *b;
+//     *b = t;
+// }
 
 int partition(int *array, int low, int high) {
     // Choosing pivot using median-of-three strategy
@@ -571,17 +571,17 @@ int partition(int *array, int low, int high) {
                      ((array[low] < array[high]) ? low : ((array[mid] < array[high]) ? high : mid));
     int pivot = array[pivotIndex];
     
-    swap(&array[pivotIndex], &array[high]); // Move pivot to end
+    swap(array[pivotIndex], array[high]); // Move pivot to end
     int i = low - 1;
     
     for (int j = low; j < high; j++) {
         if (array[j] <= pivot) {
             i++;
-            swap(&array[i], &array[j]);
+            swap(array[i], array[j]);
         }
     }
     
-    swap(&array[i + 1], &array[high]);
+    swap(array[i + 1], array[high]);
     return (i + 1);
 }
 
@@ -605,18 +605,18 @@ int partition(int *array, int low, int high, long long &comparisons) {
                      ((array[low] < array[high]) ? low : ((array[mid] < array[high]) ? high : mid));
     int pivot = array[pivotIndex];
     
-    swap(&array[pivotIndex], &array[high]); // Move pivot to end
+    swap(array[pivotIndex], array[high]); // Move pivot to end
     int i = low - 1;
     
     for (int j = low; j < high; j++) {
         comparisons++;
         if (array[j] <= pivot) {
             i++;
-            swap(&array[i], &array[j]);
+            swap(array[i], array[j]);
         }
     }
     
-    swap(&array[i + 1], &array[high]);
+    swap(array[i + 1], array[high]);
     return (i + 1);
 }
 long long quickSortCounting(int *array, int low, int high) {
@@ -634,7 +634,7 @@ void bubbleSort(int* array, int size) {
     for (int step = 0; step < size; ++step) {
         for (int i = 0; i < size - step - 1; ++i) {
             if (array[i] > array[i + 1]) {
-                swap(&array[i], &array[i + 1]);
+                swap(array[i], array[i + 1]);
             }
         }
     }
@@ -647,7 +647,7 @@ long long bubbleSortCounting(int* array, int size) {
         for (int i = 0; i < size - step - 1; ++i) {
             comparisons++; // Increase comparison count
             if (array[i] > array[i + 1]) {
-                swap(&array[i], &array[i + 1]);
+                swap(array[i], array[i + 1]);
             }
         }
     }
@@ -662,7 +662,7 @@ void selectionSort(int* array, int size) {
             if (array[i] < array[min_idx])
                 min_idx = i;
         }
-        swap(&array[min_idx], &array[step]);
+        swap(array[min_idx], array[step]);
     }
 }
 
@@ -676,7 +676,7 @@ long long selectionSortCounting(int* arr, int size) {
             if (arr[i] < arr[min_idx])
                 min_idx = i;
         }
-        swap(&arr[min_idx], &arr[step]); // Use the swap function
+        swap(arr[min_idx], arr[step]); // Use the swap function
     }
     
     return comparisons;
