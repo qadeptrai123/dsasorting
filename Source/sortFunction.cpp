@@ -386,7 +386,7 @@ void flashSort(int* array, int arraySize){
         maxIndex = (array[maxIndex] < array[i]) ? i : maxIndex;
     }
     int maxValue = array[maxIndex];
-
+    
     if (maxValue == minValue){
         return;
     }
@@ -396,7 +396,7 @@ void flashSort(int* array, int arraySize){
         int index = (numberClasses - 1) * (array[i] - minValue) / (maxValue - minValue);
         classCounts[index]++;
     }
-
+    
     //Find starting position of each class
     for (int i = 1; i < numberClasses; i++){
         classCounts[i] += classCounts[i - 1];
@@ -411,7 +411,7 @@ void flashSort(int* array, int arraySize){
     int flash, i;
     int j = 0;
     int k = numberClasses - 1;
-
+    
     while (move < (arraySize - 1)){
         while (j > (classCounts[k] - 1)){
             j++;
@@ -428,7 +428,6 @@ void flashSort(int* array, int arraySize){
             ++move;
         }
     }
-
     //Sort by insertion sort
     insertionSort(array, arraySize);
     delete[] classCounts;
@@ -556,12 +555,12 @@ long long insertionSortWithCounting(int *array, int arraySize) {
     long long countCompare = 0;
     for(int i = 1; ++countCompare && i < arraySize; ++i) {
         int key = array[i];
-        int j = i - 1;
-        while(++countCompare && j >= 0 && ++countCompare && array[j] > key) {
-            array[j+1] = array[j];
-            j--;
+        int j = i;
+        while(++countCompare && j > 0 && ++countCompare && array[j-1] > key) {
+            array[j] = array[j-1];
+            --j;
         }
-        array[j+1] = key;
+        array[j] = key;
     }
     return countCompare;
 }

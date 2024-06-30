@@ -74,6 +74,12 @@ void (*getSort(string algorithm))(int*, int) {
     else if (algorithm == "flash-sort") {
         return &flashSort;
     }
+    else if (algorithm == "insertion-sort") {
+        return &insertionSort;
+    }
+    else if (algorithm == "shell-sort") {
+        return &shellSort;
+    }
     else {
         return nullptr;  // Nếu không khớp với thuật toán nào, trả về nullptr
     }
@@ -204,12 +210,25 @@ void doSortAlgorithm(string algorithm, int *array, int arraySize, string paramet
 }
 
 void doCompareSortAlgorithm(string algorithm1, string algorithm2, int *array, int arraySize) {
-    long long time1 = benchmark(array, arraySize, algorithm1);
-    long long time2 = benchmark(array, arraySize, algorithm2);
+    int *dupArray1 = new int[arraySize];
+    int *dupArray2 = new int[arraySize];
+    for(int i = 0; i < arraySize; ++i) {
+        dupArray1[i] = array[i];
+        dupArray2[i] = array[i];
+    }
+    long long time1 = benchmark(dupArray1, arraySize, algorithm1);
+    long long time2 = benchmark(dupArray2, arraySize, algorithm2);
     cout << "Running time: " << time1 << " | " << time2 << "\n";
-    long long comp1 = getSortCounting(algorithm1)(array, arraySize);
-    long long comp2 = getSortCounting(algorithm2)(array, arraySize);
+    
+    for(int i = 0; i < arraySize; ++i) {
+        dupArray1[i] = array[i];
+        dupArray2[i] = array[i];
+    }
+    long long comp1 = getSortCounting(algorithm1)(dupArray1, arraySize);
+    long long comp2 = getSortCounting(algorithm2)(dupArray2, arraySize);
     cout << "Comparisons: " << comp1 << " | " << comp2 << "\n";
+    delete[] dupArray1;
+    delete[] dupArray2;
 }
 
 void doCmd1(string algorithm, string inputFile, string parameter) {
@@ -297,8 +316,17 @@ void doCmd4(string algorithm1, string algorithm2, string inputFile) {
     delete[] a;
 }
 
-void doCmd5(string algorithm1, string algorithm2, int inputSize, string inputOrder) {
+void doCmd5(string algorithm1, string algorithm2, int n, string inputOrder) {
     cout << "CMD5\n";
+    cout << "Algorithm: " << getAlgorithmName(algorithm1) << " | " << getAlgorithmName(algorithm2) << "\n";
+    cout << "Input size: " << n << "\n";
+    cout << "Input order: " << getNameOrder(inputOrder) << "\n";
+    cout << "-----------------\n";
+    int *a = new int[n];
+    GenerateData(a, n, order(inputOrder));
+    writeArrayToFile(a, n, "input.txt");
+    doCompareSortAlgorithm(algorithm1, algorithm2, a, n);
+    delete[] a;
 }
 
 int main(int argc, char *argv[]) {
