@@ -159,8 +159,9 @@ void doMergeSort(int *array, int leftIndex, int rightIndex) {
 }
 
 //merge sort with counting 
-void mergeTwoSubArraysWithCounting(int *array, int left, int middleIndex, int right, long long &countCompare) {
+long long mergeTwoSubArraysWithCounting(int *array, int left, int middleIndex, int right) {
     int i;
+    long long countCompare = 0;
     int subArrayOneSize = middleIndex - left + 1; 
     int subArrayTwoSize = right - middleIndex; 
 
@@ -200,14 +201,16 @@ void mergeTwoSubArraysWithCounting(int *array, int left, int middleIndex, int ri
     }
     delete[] leftArray;
     delete[] rightArray;
+    return countCompare;
 }
-long long mergeSortWithCounting(int *array, int leftIndex, int rightIndex, long long &countCompare) {
+long long mergeSortWithCounting(int *array, int leftIndex, int rightIndex) {
+    long long countCompare = 0;
     if ( ++countCompare && (leftIndex >= rightIndex))
         return countCompare;
     int middleIndex = leftIndex + (rightIndex - leftIndex) / 2; 
-    mergeSortWithCounting(array, leftIndex, middleIndex, countCompare);
-    mergeSortWithCounting(array, middleIndex + 1, rightIndex, countCompare);
-    mergeTwoSubArraysWithCounting(array, leftIndex, middleIndex, rightIndex, countCompare);
+    countCompare += mergeSortWithCounting(array, leftIndex, middleIndex);
+    countCompare += mergeSortWithCounting(array, middleIndex + 1, rightIndex);
+    countCompare += mergeTwoSubArraysWithCounting(array, leftIndex, middleIndex, rightIndex);
     return countCompare;
 }
 
