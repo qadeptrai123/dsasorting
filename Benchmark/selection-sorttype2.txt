@@ -1,0 +1,30 @@
+Selection Sort Reverse 10k
+10k_type_2.txt
+Time: 52 ms
+Comp: 100009999
+
+Selection Sort Reverse 30k
+30k_type_2.txt
+Time: 478 ms
+Comp: 900029999
+
+Selection Sort Reverse 50k
+50k_type_2.txt
+Time: 1310 ms
+Comp: 2500049999
+
+Selection Sort Reverse 100k
+100k_type_2.txt
+Time: 5251 ms
+Comp: 10000099999
+
+Selection Sort Reverse 300k
+300k_type_2.txt
+Time: 47031 ms
+Comp: 90000299999
+
+Selection Sort Reverse 500k
+500k_type_2.txt
+Time: 128146 ms
+Comp: 250000499999
+

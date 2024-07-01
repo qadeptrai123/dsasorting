@@ -1,0 +1,30 @@
+Selection Sort Sorted 10k
+10k_type_1.txt
+Time: 47 ms
+Comp: 100009999
+
+Selection Sort Sorted 30k
+30k_type_1.txt
+Time: 434 ms
+Comp: 900029999
+
+Selection Sort Sorted 50k
+50k_type_1.txt
+Time: 1189 ms
+Comp: 2500049999
+
+Selection Sort Sorted 100k
+100k_type_1.txt
+Time: 4818 ms
+Comp: 10000099999
+
+Selection Sort Sorted 300k
+300k_type_1.txt
+Time: 43762 ms
+Comp: 90000299999
+
+Selection Sort Sorted 500k
+500k_type_1.txt
+Time: 117847 ms
+Comp: 250000499999
+

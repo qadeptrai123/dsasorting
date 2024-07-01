@@ -166,27 +166,36 @@ long long countingComp(int *a, int n, string algorithm) {
 }
 
 
-void benchMark(string algorithm, int type, int szType) {
-    // cout << algorithm << " " << type << " " << szType << "\n";
-    cout << getAlgorithmName(algorithm) << " " << order[type] << " " << szStr[szType] << "\n";
-    string f = szStr[szType] + "_" + "type" + "_" + char('0' + szType) + ".txt";
-    cout << f << "\n";
-    ifstream ifs("../data/" + f);
-    int n = sz[szType];
-    int *a = new int[n];
-    for(int i = 0; i < n; ++i) ifs >> a[i];
-    ifs.close();
+void benchMark(string algorithm) {
+    for(int type = 0; type < 4; ++type) {
+        // cout << algorithm << " " << type << " " << szType << "\n";
+        ofstream ofs(algorithm + "type" + char('0' + type) + ".txt");
+        for(int szType = 0; szType < 6; ++szType) {
+            cout << getAlgorithmName(algorithm) << " " << order[type] << " " << szStr[szType] << "\n";
+            string f = szStr[szType] + "_" + "type" + "_" + char('0' + type) + ".txt";
+            cout << f << "\n";
+            ifstream ifs("../data/" + f);
+            int n = sz[szType];
+            int *a = new int[n];
+            for(int i = 0; i < n; ++i) ifs >> a[i];
+            ifs.close();
 
-    int *b = new int[n];
-    for(int i = 0; i < n; ++i) b[i] = a[i];
-
-    long long time = counting(a, n, algorithm);
-    cout << "Time: " << time << " ms\n";
-    long long comp = countingComp(b, n, algorithm);
-    cout << "Comp: " << comp << "\n";
-
-    delete[] b;
-    delete[] a;
+            int *b = new int[n];
+            for(int i = 0; i < n; ++i) b[i] = a[i];
+            
+            ofs << getAlgorithmName(algorithm) << " " << order[type] << " " << szStr[szType] << "\n";
+            ofs << f << "\n";
+            long long time = counting(a, n, algorithm);
+            cout << "Time: " << time << " ms\n";
+            ofs << "Time: " << time << " ms\n";
+            long long comp = countingComp(b, n, algorithm);
+            cout << "Comp: " << comp << "\n\n";
+            ofs << "Comp: " << comp << "\n\n";
+            delete[] b;
+            delete[] a;
+        }
+        ofs.close();
+    }
 }
 
 int main(int argc, char* argv[]) {
@@ -205,9 +214,7 @@ int main(int argc, char* argv[]) {
     //  5: 500k
 
     string algorithm = argv[1];
-    int type = toInt(argv[2]);
-    int szType = toInt(argv[3]);
-    benchMark(algorithm, type, szType);
+    benchMark(algorithm);
 
 
     return 0;

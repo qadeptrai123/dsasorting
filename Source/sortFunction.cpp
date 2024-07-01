@@ -562,7 +562,8 @@ long long insertionSortWithCounting(int *array, int arraySize) {
     for(int i = 1; ++countCompare && i < arraySize; ++i) {
         int key = array[i];
         int j = i;
-        while(++countCompare &&(j > 0)  &&  (++countCompare  &&  array[j-1] > key)) {
+        while(++countCompare && j > 0 && ++countCompare && array[j-1] > key) {
+
             array[j] = array[j-1];
             --j;
         }
