@@ -263,8 +263,8 @@ long long countingSortWithCounting(int* array, int arraySize){
 
     int maxValue = array[0];
     for (int i = 0; ++countCompare && i < arraySize; i++){
-        maxValue = (array[i] > maxValue) ? array[i] : maxValue;
-        ++countCompare;
+        maxValue = (++countCompare && array[i] > maxValue) ? array[i] : maxValue;
+        
     }
 
     int* count = new int[maxValue + 1]();
@@ -562,7 +562,7 @@ long long insertionSortWithCounting(int *array, int arraySize) {
     for(int i = 1; ++countCompare && i < arraySize; ++i) {
         int key = array[i];
         int j = i;
-        while(++countCompare && j > 0 && ++countCompare && array[j-1] > key) {
+        while(countCompare += 3 && (j > 0  && array[j-1] > key)) {
             array[j] = array[j-1];
             --j;
         }
@@ -635,7 +635,7 @@ int partitionCounting(int *array, int low, int high, long long &comparisons) {
 
 long long doQuickSortWithCounting(int *array, int low, int high) {
     long long comparisons = 0;
-    if (low < high) {
+    if (++comparisons && low < high) {
         int pi = partitionCounting(array, low, high, comparisons);
         
         comparisons += doQuickSortWithCounting(array, low, pi - 1);
