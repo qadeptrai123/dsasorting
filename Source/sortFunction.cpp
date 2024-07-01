@@ -33,7 +33,7 @@ long long shellSortWithCounting(int *array, int arraySize) {
         for (i = interval; ++countCompare && (i < arraySize); i++) {
             store = array[i]; 
             j = i; 
-            while ((countCompare += 3) && (j >= interval && array[j - interval] > store)) {
+            while ((countCompare += 2) && (j >= interval && array[j - interval] > store)) {
                 array[j] = array[j - interval]; 
                 j -= interval; 
             }
@@ -81,9 +81,9 @@ void heapifyWithCounting(int *array, int arraySize, int currentIndex, long long 
     int left = 2 * currentIndex + 1; 
     int right = 2 * currentIndex + 2; 
   
-    if ((countCompare += 3) && (left < arraySize && array[left] > array[indexOfLargestElement]))
+    if ((countCompare += 2) && (left < arraySize && array[left] > array[indexOfLargestElement]))
         indexOfLargestElement = left; 
-    if ((countCompare += 3) && (right < arraySize && array[right] > array[indexOfLargestElement]))
+    if ((countCompare += 2) && (right < arraySize && array[right] > array[indexOfLargestElement]))
         indexOfLargestElement = right; 
     if ((++countCompare) && (indexOfLargestElement != currentIndex)) {
         swap(array[currentIndex], array[indexOfLargestElement]);
@@ -178,7 +178,7 @@ long long mergeTwoSubArraysWithCounting(int *array, int left, int middleIndex, i
     int indexOfSubArrayTwo = 0;
     int indexOfMergedArray = left;
 
-    while ( (countCompare += 3) && (indexOfSubArrayOne < subArrayOneSize && indexOfSubArrayTwo < subArrayTwoSize)) {
+    while ( (countCompare += 2) && (indexOfSubArrayOne < subArrayOneSize && indexOfSubArrayTwo < subArrayTwoSize)) {
         if ( (++countCompare) && (leftArray[indexOfSubArrayOne] <= rightArray[indexOfSubArrayTwo])) {
             array[indexOfMergedArray] = leftArray[indexOfSubArrayOne];
             indexOfSubArrayOne++; 
@@ -562,7 +562,7 @@ long long insertionSortWithCounting(int *array, int arraySize) {
     for(int i = 1; ++countCompare && i < arraySize; ++i) {
         int key = array[i];
         int j = i;
-        while(countCompare += 3 && (j > 0  && array[j-1] > key)) {
+        while(countCompare += 2 && (j > 0  && array[j-1] > key)) {
             array[j] = array[j-1];
             --j;
         }
