@@ -1,5 +1,6 @@
 #include "sortFunction.h"
 #include <algorithm>
+#include<fstream>
 using namespace std;
 
 
@@ -391,9 +392,9 @@ void flashSort(int* array, int arraySize){
     }
 
     //Count number elements of each class 
-    int c = (int)(numberClasses - 1) / (maxValue - minValue);
+    double c = (double)(numberClasses - 1) / (maxValue - minValue);
     for (int i = 0; i < arraySize; i++){
-        int index = c * (array[i] - minValue);
+        int index = (int)(c * (array[i] - minValue));
         classCounts[index]++;
     }
     
@@ -428,6 +429,10 @@ void flashSort(int* array, int arraySize){
             ++move;
         }
     }
+    // ofstream fout;
+    // fout.open("check.txt");
+    // for(int i = 0; i < arraySize; ++i) fout << array[i] << " ";
+    // fout.close();
     //Sort by insertion sort
     insertionSort(array, arraySize);
     delete[] classCounts;
@@ -450,7 +455,7 @@ long long flashSortWithCounting(int* array, int arraySize){
         return countCompare;
     }
 
-    int c = (int)(numberClasses - 1) / (maxValue - minValue);
+    double c = (double)(numberClasses - 1) / (maxValue - minValue);
     for (int i = 0; ++countCompare && i < arraySize; i++){
         int index = c * (array[i] - minValue);
         classCounts[index]++;
