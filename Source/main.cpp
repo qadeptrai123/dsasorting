@@ -232,7 +232,7 @@ void doCompareSortAlgorithm(string algorithm1, string algorithm2, int *array, in
 }
 
 void doCmd1(string algorithm, string inputFile, string parameter) {
-    cout << "CMD1\n";
+    // cout << "CMD1\n";
     cout << "Algorithm: " << getAlgorithmName(algorithm) << "\n";
     cout << "Input file: " << inputFile << "\n";
  
@@ -250,7 +250,7 @@ void doCmd1(string algorithm, string inputFile, string parameter) {
 }
 
 void doCmd2(string algorithm, int n, string inputOrder, string parameter) {
-    cout << "CMD2\n";
+    // cout << "CMD2\n";
     cout << "Algorithm: " << getAlgorithmName(algorithm) << "\n";
     cout << "Input size: " << n << "\n";
     cout << "Input order: " << getNameOrder(inputOrder) << "\n";
@@ -268,7 +268,7 @@ void doCmd2(string algorithm, int n, string inputOrder, string parameter) {
 }
 
 void doCmd3(string algorithm, int n, string parameter) {
-    cout << "CMD3\n";
+    // cout << "CMD3\n";
     cout << "Algorithm: " << getAlgorithmName(algorithm) << "\n";
     cout << "Input size: " << n << "\n";
     cout << "\n";
@@ -305,7 +305,7 @@ void doCmd3(string algorithm, int n, string parameter) {
 }
 
 void doCmd4(string algorithm1, string algorithm2, string inputFile) {
-    cout << "CMD4\n";
+    // cout << "CMD4\n";
     cout << "Algorithm: " << getAlgorithmName(algorithm1) << " | " << getAlgorithmName(algorithm2) << "\n";
     cout << "Input file: " << inputFile << "\n";
     int n;
@@ -317,7 +317,7 @@ void doCmd4(string algorithm1, string algorithm2, string inputFile) {
 }
 
 void doCmd5(string algorithm1, string algorithm2, int n, string inputOrder) {
-    cout << "CMD5\n";
+    // cout << "CMD5\n";
     cout << "Algorithm: " << getAlgorithmName(algorithm1) << " | " << getAlgorithmName(algorithm2) << "\n";
     cout << "Input size: " << n << "\n";
     cout << "Input order: " << getNameOrder(inputOrder) << "\n";
