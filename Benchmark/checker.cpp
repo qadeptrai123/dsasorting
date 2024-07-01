@@ -160,6 +160,11 @@ long long counting(int *a, int n, string algorithm) {
     return time;
 }
 
+long long countingComp(int *a, int n, string algorithm) {
+    long long (*sortCountingAlgorithm)(int*, int) = getSortCounting(algorithm);
+    return sortCountingAlgorithm(a, n);
+}
+
 
 void benchMark(string algorithm, int type, int szType) {
     // cout << algorithm << " " << type << " " << szType << "\n";
@@ -176,9 +181,11 @@ void benchMark(string algorithm, int type, int szType) {
     for(int i = 0; i < n; ++i) b[i] = a[i];
 
     long long time = counting(a, n, algorithm);
-    cout << "Time: " << time << " ns\n";
+    cout << "Time: " << time << " ms\n";
     long long comp = countingComp(b, n, algorithm);
+    cout << "Comp: " << comp << "\n";
 
+    delete[] b;
     delete[] a;
 }
 
