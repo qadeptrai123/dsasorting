@@ -362,7 +362,7 @@ long long radixSortWithCounting(int* array, int arraySize){
     long long countCompare = 0;
     int largestElement = array[0];
     for (int i = 1; ++countCompare && i < arraySize; i++){
-        largestElement = (array[i] > largestElement) ? array[i] : largestElement;
+        largestElement = (++countCompare && array[i] > largestElement) ? array[i] : largestElement;
     }
 
     for (int place = 1; ++countCompare && largestElement / place > 0; place *= 10){
