@@ -149,7 +149,7 @@ long long benchmark(int *a, int n, string algorithm) {
     auto start = steady_clock::now();
     sortAlgorithm(a, n);
     auto end = steady_clock::now();
-    long long time = duration_cast<nanoseconds>(end - start).count();
+    long long time = duration_cast<milliseconds>(end - start).count();
     return time;
 }
 
