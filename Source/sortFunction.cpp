@@ -374,7 +374,6 @@ long long radixSortWithCounting(int* array, int arraySize){
 //https://www.w3resource.com/javascript-exercises/searching-and-sorting-algorithm/searching-and-sorting-algorithm-exercise-12.php#google_vignette
 
 void flashSort(int* array, int arraySize){
-    
     int numberClasses = 0.45 * arraySize;
     int* classCounts = new int[numberClasses]();
     
@@ -392,8 +391,9 @@ void flashSort(int* array, int arraySize){
     }
 
     //Count number elements of each class 
+    int c = (int)(numberClasses - 1) / (maxValue - minValue);
     for (int i = 0; i < arraySize; i++){
-        int index = (numberClasses - 1) * (array[i] - minValue) / (maxValue - minValue);
+        int index = c * (array[i] - minValue);
         classCounts[index]++;
     }
     
@@ -415,12 +415,12 @@ void flashSort(int* array, int arraySize){
     while (move < (arraySize - 1)){
         while (j > (classCounts[k] - 1)){
             j++;
-            k = (numberClasses - 1) * (array[j] - minValue) / (maxValue - minValue);
+            k = c * (array[j] - minValue);
         }
         if (k < 0) break;
         flash = array[j];
         while (j != classCounts[k]){
-            k = (numberClasses - 1) * (flash - minValue) / (maxValue - minValue);
+            k = c * (flash - minValue);
             i = --classCounts[k];
             hold = array[i];
             array[i] = flash;
@@ -450,8 +450,9 @@ long long flashSortWithCounting(int* array, int arraySize){
         return countCompare;
     }
 
+    int c = (int)(numberClasses - 1) / (maxValue - minValue);
     for (int i = 0; ++countCompare && i < arraySize; i++){
-        int index = (numberClasses - 1) * (array[i] - minValue) / (maxValue - minValue);
+        int index = c * (array[i] - minValue);
         classCounts[index]++;
     }
 
@@ -471,12 +472,12 @@ long long flashSortWithCounting(int* array, int arraySize){
     while (++countCompare && move < (arraySize - 1)){
         while (++countCompare && j > (classCounts[k] - 1)){
             j++;
-            k = (numberClasses - 1) * (array[j] - minValue) / (maxValue - minValue);
+            k = c * (array[j] - minValue);
         }
         if (++countCompare && k < 0) break;
         flash = array[j];
         while (++countCompare && j != classCounts[k]){
-            k = (numberClasses - 1) * (flash - minValue) / (maxValue - minValue);
+            k = c * (flash - minValue);
             i = --classCounts[k];
             hold = array[i];
             array[i] = flash;
@@ -485,7 +486,7 @@ long long flashSortWithCounting(int* array, int arraySize){
         }
     }
 
-    countCompare = countCompare + insertionSortWithCounting(array, arraySize);
+    countCompare += insertionSortWithCounting(array, arraySize);
 
     delete[] classCounts;
     return countCompare;
