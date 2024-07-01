@@ -614,17 +614,16 @@ void doQuickSort(int *array, int low, int high) {
 int partitionCounting(int *array, int low, int high, long long &comparisons) {
     // Choosing pivot using median-of-three strategy
     int mid = low + (high - low) / 2;
-    int pivotIndex = (array[low] < array[mid]) ?
-                     ((array[mid] < array[high]) ? mid : ((array[low] < array[high]) ? high : low)) :
-                     ((array[low] < array[high]) ? low : ((array[mid] < array[high]) ? high : mid));
+    int pivotIndex = (++comparisons && array[low] < array[mid]) ?
+                     ((++comparisons && array[mid] < array[high]) ? mid : ((++comparisons && array[low] < array[high]) ? high : low)) :
+                     ((++comparisons && array[low] < array[high]) ? low : ((++comparisons && array[mid] < array[high]) ? high : mid));
     int pivot = array[pivotIndex];
     
     swap(array[pivotIndex], array[high]); // Move pivot to end
     int i = low - 1;
     
-    for (int j = low; j < high; j++) {
-        comparisons++;
-        if (array[j] <= pivot) {
+    for (int j = low; ++comparisons &&  j < high; j++) {
+        if ( ++comparisons && array[j] <= pivot) {
             i++;
             swap(array[i], array[j]);
         }
@@ -662,10 +661,9 @@ void bubbleSort(int* array, int size) {
 long long bubbleSortWithCounting(int* array, int size) {
     long long comparisons = 0;
 
-    for (int step = 0; step < size; ++step) {
-        for (int i = 0; i < size - step - 1; ++i) {
-            comparisons++; // Increase comparison count
-            if (array[i] > array[i + 1]) {
+    for (int step = 0; ++comparisons && step < size; ++step) {
+        for (int i = 0; ++comparisons &&  i < size - step - 1; ++i) {
+            if ( ++comparisons && array[i] > array[i + 1]) {
                 swap(array[i], array[i + 1]);
             }
         }
@@ -688,11 +686,10 @@ void selectionSort(int* array, int size) {
 long long selectionSortWithCounting(int* arr, int size) {
     long long comparisons = 0;
     
-    for (int step = 0; step < size - 1; step++) {
+    for (int step = 0; ++comparisons &&  step < size - 1; step++) {
         int min_idx = step;
-        for (int i = step + 1; i < size; i++) {
-            comparisons++; // Increase comparison count
-            if (arr[i] < arr[min_idx])
+        for (int i = step + 1; ++comparisons &&  i < size; i++) {
+            if ( ++comparisons && arr[i] < arr[min_idx])
                 min_idx = i;
         }
         swap(arr[min_idx], arr[step]); // Use the swap function
