@@ -1,0 +1,30 @@
+Insertion Sort NearlySorted 10k
+10k_type_3.txt
+Time: 0 ms
+Comp: 121282
+
+Insertion Sort NearlySorted 30k
+30k_type_3.txt
+Time: 0 ms
+Comp: 463486
+
+Insertion Sort NearlySorted 50k
+50k_type_3.txt
+Time: 0 ms
+Comp: 620226
+
+Insertion Sort NearlySorted 100k
+100k_type_3.txt
+Time: 0 ms
+Comp: 832826
+
+Insertion Sort NearlySorted 300k
+300k_type_3.txt
+Time: 0 ms
+Comp: 1243482
+
+Insertion Sort NearlySorted 500k
+500k_type_3.txt
+Time: 1 ms
+Comp: 2087582
+

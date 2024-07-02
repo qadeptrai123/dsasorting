@@ -1,0 +1,30 @@
+Bubble Sort Sorted 10k
+10k_type_1.txt
+Time: 51 ms
+Comp: 100010001
+
+Bubble Sort Sorted 30k
+30k_type_1.txt
+Time: 466 ms
+Comp: 900030001
+
+Bubble Sort Sorted 50k
+50k_type_1.txt
+Time: 1275 ms
+Comp: 2500050001
+
+Bubble Sort Sorted 100k
+100k_type_1.txt
+Time: 5081 ms
+Comp: 10000100001
+
+Bubble Sort Sorted 300k
+300k_type_1.txt
+Time: 45933 ms
+Comp: 90000300001
+
+Bubble Sort Sorted 500k
+500k_type_1.txt
+Time: 127335 ms
+Comp: 250000500001
+

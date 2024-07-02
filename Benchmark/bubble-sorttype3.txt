@@ -1,0 +1,30 @@
+Bubble Sort NearlySorted 10k
+10k_type_3.txt
+Time: 51 ms
+Comp: 100010001
+
+Bubble Sort NearlySorted 30k
+30k_type_3.txt
+Time: 464 ms
+Comp: 900030001
+
+Bubble Sort NearlySorted 50k
+50k_type_3.txt
+Time: 1281 ms
+Comp: 2500050001
+
+Bubble Sort NearlySorted 100k
+100k_type_3.txt
+Time: 5057 ms
+Comp: 10000100001
+
+Bubble Sort NearlySorted 300k
+300k_type_3.txt
+Time: 45576 ms
+Comp: 90000300001
+
+Bubble Sort NearlySorted 500k
+500k_type_3.txt
+Time: 127230 ms
+Comp: 250000500001
+

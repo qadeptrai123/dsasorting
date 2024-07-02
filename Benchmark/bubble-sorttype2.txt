@@ -1,0 +1,30 @@
+Bubble Sort Reverse 10k
+10k_type_2.txt
+Time: 241 ms
+Comp: 100010001
+
+Bubble Sort Reverse 30k
+30k_type_2.txt
+Time: 2094 ms
+Comp: 900030001
+
+Bubble Sort Reverse 50k
+50k_type_2.txt
+Time: 5759 ms
+Comp: 2500050001
+
+Bubble Sort Reverse 100k
+100k_type_2.txt
+Time: 22954 ms
+Comp: 10000100001
+
+Bubble Sort Reverse 300k
+300k_type_2.txt
+Time: 205403 ms
+Comp: 90000300001
+
+Bubble Sort Reverse 500k
+500k_type_2.txt
+Time: 571201 ms
+Comp: 250000500001
+

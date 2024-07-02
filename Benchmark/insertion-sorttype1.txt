@@ -1,0 +1,30 @@
+Insertion Sort Sorted 10k
+10k_type_1.txt
+Time: 0 ms
+Comp: 29998
+
+Insertion Sort Sorted 30k
+30k_type_1.txt
+Time: 0 ms
+Comp: 89998
+
+Insertion Sort Sorted 50k
+50k_type_1.txt
+Time: 0 ms
+Comp: 149998
+
+Insertion Sort Sorted 100k
+100k_type_1.txt
+Time: 0 ms
+Comp: 299998
+
+Insertion Sort Sorted 300k
+300k_type_1.txt
+Time: 0 ms
+Comp: 899998
+
+Insertion Sort Sorted 500k
+500k_type_1.txt
+Time: 0 ms
+Comp: 1499998
+

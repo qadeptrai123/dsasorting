@@ -1,0 +1,30 @@
+Insertion Sort Reverse 10k
+10k_type_2.txt
+Time: 68 ms
+Comp: 100009999
+
+Insertion Sort Reverse 30k
+30k_type_2.txt
+Time: 647 ms
+Comp: 900029999
+
+Insertion Sort Reverse 50k
+50k_type_2.txt
+Time: 1663 ms
+Comp: 2500049999
+
+Insertion Sort Reverse 100k
+100k_type_2.txt
+Time: 6565 ms
+Comp: 10000099999
+
+Insertion Sort Reverse 300k
+300k_type_2.txt
+Time: 59697 ms
+Comp: 90000299999
+
+Insertion Sort Reverse 500k
+500k_type_2.txt
+Time: 163597 ms
+Comp: 250000499999
+

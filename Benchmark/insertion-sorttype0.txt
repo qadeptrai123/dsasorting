@@ -1,0 +1,30 @@
+Insertion Sort Random 10k
+10k_type_0.txt
+Time: 33 ms
+Comp: 49951701
+
+Insertion Sort Random 30k
+30k_type_0.txt
+Time: 297 ms
+Comp: 449369879
+
+Insertion Sort Random 50k
+50k_type_0.txt
+Time: 837 ms
+Comp: 1253791769
+
+Insertion Sort Random 100k
+100k_type_0.txt
+Time: 3279 ms
+Comp: 4995894121
+
+Insertion Sort Random 300k
+300k_type_0.txt
+Time: 30464 ms
+Comp: 45049956909
+
+Insertion Sort Random 500k
+500k_type_0.txt
+Time: 82180 ms
+Comp: 124876404002
+
