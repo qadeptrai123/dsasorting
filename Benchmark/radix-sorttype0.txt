@@ -1,0 +1,30 @@
+Radix Sort Random 10k
+10k_type_0.txt
+Time: 0 ms
+Comp: 140056
+
+Radix Sort Random 30k
+30k_type_0.txt
+Time: 3 ms
+Comp: 510070
+
+Radix Sort Random 50k
+50k_type_0.txt
+Time: 5 ms
+Comp: 850070
+
+Radix Sort Random 100k
+100k_type_0.txt
+Time: 11 ms
+Comp: 1700070
+
+Radix Sort Random 300k
+300k_type_0.txt
+Time: 35 ms
+Comp: 5100070
+
+Radix Sort Random 500k
+500k_type_0.txt
+Time: 60 ms
+Comp: 8500070
+

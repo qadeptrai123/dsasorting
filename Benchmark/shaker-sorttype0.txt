@@ -1,0 +1,30 @@
+Shaker Sort Random 10k
+10k_type_0.txt
+Time: 144 ms
+Comp: 66427587
+
+Shaker Sort Random 30k
+30k_type_0.txt
+Time: 1488 ms
+Comp: 598335723
+
+Shaker Sort Random 50k
+50k_type_0.txt
+Time: 4457 ms
+Comp: 1670726805
+
+Shaker Sort Random 100k
+100k_type_0.txt
+Time: 18376 ms
+Comp: 6664912305
+
+Shaker Sort Random 300k
+300k_type_0.txt
+Time: 165472 ms
+Comp: 60077298929
+
+Shaker Sort Random 500k
+500k_type_0.txt
+Time: 459317 ms
+Comp: 166519145524
+

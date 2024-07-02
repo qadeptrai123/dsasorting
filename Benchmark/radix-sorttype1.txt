@@ -1,0 +1,30 @@
+Radix Sort Sorted 10k
+10k_type_1.txt
+Time: 1 ms
+Comp: 140056
+
+Radix Sort Sorted 30k
+30k_type_1.txt
+Time: 3 ms
+Comp: 510070
+
+Radix Sort Sorted 50k
+50k_type_1.txt
+Time: 6 ms
+Comp: 850070
+
+Radix Sort Sorted 100k
+100k_type_1.txt
+Time: 12 ms
+Comp: 1700070
+
+Radix Sort Sorted 300k
+300k_type_1.txt
+Time: 43 ms
+Comp: 6000084
+
+Radix Sort Sorted 500k
+500k_type_1.txt
+Time: 75 ms
+Comp: 10000084
+

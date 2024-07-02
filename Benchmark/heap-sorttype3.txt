@@ -1,0 +1,30 @@
+Heap Sort NearlySorted 10k
+10k_type_3.txt
+Time: 1 ms
+Comp: 669950
+
+Heap Sort NearlySorted 30k
+30k_type_3.txt
+Time: 4 ms
+Comp: 2236638
+
+Heap Sort NearlySorted 50k
+50k_type_3.txt
+Time: 7 ms
+Comp: 3925085
+
+Heap Sort NearlySorted 100k
+100k_type_3.txt
+Time: 15 ms
+Comp: 8365054
+
+Heap Sort NearlySorted 300k
+300k_type_3.txt
+Time: 57 ms
+Comp: 27413310
+
+Heap Sort NearlySorted 500k
+500k_type_3.txt
+Time: 85 ms
+Comp: 47404870
+

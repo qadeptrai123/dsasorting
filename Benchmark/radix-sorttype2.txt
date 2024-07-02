@@ -1,0 +1,30 @@
+Radix Sort Reverse 10k
+10k_type_2.txt
+Time: 0 ms
+Comp: 140056
+
+Radix Sort Reverse 30k
+30k_type_2.txt
+Time: 3 ms
+Comp: 510070
+
+Radix Sort Reverse 50k
+50k_type_2.txt
+Time: 5 ms
+Comp: 850070
+
+Radix Sort Reverse 100k
+100k_type_2.txt
+Time: 11 ms
+Comp: 1700070
+
+Radix Sort Reverse 300k
+300k_type_2.txt
+Time: 44 ms
+Comp: 6000084
+
+Radix Sort Reverse 500k
+500k_type_2.txt
+Time: 71 ms
+Comp: 10000084
+

@@ -1,0 +1,30 @@
+Quick Sort Reverse 10k
+10k_type_2.txt
+Time: 0 ms
+Comp: 482041
+
+Quick Sort Reverse 30k
+30k_type_2.txt
+Time: 2 ms
+Comp: 1681617
+
+Quick Sort Reverse 50k
+50k_type_2.txt
+Time: 4 ms
+Comp: 2996593
+
+Quick Sort Reverse 100k
+100k_type_2.txt
+Time: 10 ms
+Comp: 6492769
+
+Quick Sort Reverse 300k
+300k_type_2.txt
+Time: 35 ms
+Comp: 21786865
+
+Quick Sort Reverse 500k
+500k_type_2.txt
+Time: 59 ms
+Comp: 38130593
+

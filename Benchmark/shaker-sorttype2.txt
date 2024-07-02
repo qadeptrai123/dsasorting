@@ -1,0 +1,30 @@
+Shaker Sort Reverse 10k
+10k_type_2.txt
+Time: 240 ms
+Comp: 100005001
+
+Shaker Sort Reverse 30k
+30k_type_2.txt
+Time: 2179 ms
+Comp: 900015001
+
+Shaker Sort Reverse 50k
+50k_type_2.txt
+Time: 5931 ms
+Comp: 2500025001
+
+Shaker Sort Reverse 100k
+100k_type_2.txt
+Time: 23684 ms
+Comp: 10000050001
+
+Shaker Sort Reverse 300k
+300k_type_2.txt
+Time: 211581 ms
+Comp: 90000150001
+
+Shaker Sort Reverse 500k
+500k_type_2.txt
+Time: 588570 ms
+Comp: 250000250001
+

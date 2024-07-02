@@ -1,0 +1,30 @@
+Shell Sort Reverse 10k
+10k_type_2.txt
+Time: 0 ms
+Comp: 485162
+
+Shell Sort Reverse 30k
+30k_type_2.txt
+Time: 1 ms
+Comp: 1584034
+
+Shell Sort Reverse 50k
+50k_type_2.txt
+Time: 2 ms
+Comp: 2894609
+
+Shell Sort Reverse 100k
+100k_type_2.txt
+Time: 5 ms
+Comp: 6189171
+
+Shell Sort Reverse 300k
+300k_type_2.txt
+Time: 15 ms
+Comp: 20301821
+
+Shell Sort Reverse 500k
+500k_type_2.txt
+Time: 25 ms
+Comp: 34357562
+

@@ -1,0 +1,30 @@
+Heap Sort Sorted 10k
+10k_type_1.txt
+Time: 1 ms
+Comp: 670333
+
+Heap Sort Sorted 30k
+30k_type_1.txt
+Time: 4 ms
+Comp: 2236652
+
+Heap Sort Sorted 50k
+50k_type_1.txt
+Time: 7 ms
+Comp: 3925355
+
+Heap Sort Sorted 100k
+100k_type_1.txt
+Time: 15 ms
+Comp: 8365084
+
+Heap Sort Sorted 300k
+300k_type_1.txt
+Time: 51 ms
+Comp: 27413234
+
+Heap Sort Sorted 500k
+500k_type_1.txt
+Time: 85 ms
+Comp: 47404890
+

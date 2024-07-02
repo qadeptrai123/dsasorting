@@ -1,0 +1,30 @@
+Flash Sort Sorted 10k
+10k_type_1.txt
+Time: 0 ms
+Comp: 123491
+
+Flash Sort Sorted 30k
+30k_type_1.txt
+Time: 0 ms
+Comp: 370491
+
+Flash Sort Sorted 50k
+50k_type_1.txt
+Time: 1 ms
+Comp: 617491
+
+Flash Sort Sorted 100k
+100k_type_1.txt
+Time: 1 ms
+Comp: 1234991
+
+Flash Sort Sorted 300k
+300k_type_1.txt
+Time: 5 ms
+Comp: 3704991
+
+Flash Sort Sorted 500k
+500k_type_1.txt
+Time: 9 ms
+Comp: 6174991
+

@@ -1,0 +1,30 @@
+Counting Sort Reverse 10k
+10k_type_2.txt
+Time: 0 ms
+Comp: 60004
+
+Counting Sort Reverse 30k
+30k_type_2.txt
+Time: 0 ms
+Comp: 180004
+
+Counting Sort Reverse 50k
+50k_type_2.txt
+Time: 0 ms
+Comp: 300004
+
+Counting Sort Reverse 100k
+100k_type_2.txt
+Time: 1 ms
+Comp: 600004
+
+Counting Sort Reverse 300k
+300k_type_2.txt
+Time: 2 ms
+Comp: 1800004
+
+Counting Sort Reverse 500k
+500k_type_2.txt
+Time: 5 ms
+Comp: 3000004
+

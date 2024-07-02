@@ -1,0 +1,30 @@
+Quick Sort Sorted 10k
+10k_type_1.txt
+Time: 0 ms
+Comp: 256783
+
+Quick Sort Sorted 30k
+30k_type_1.txt
+Time: 1 ms
+Comp: 856412
+
+Quick Sort Sorted 50k
+50k_type_1.txt
+Time: 2 ms
+Comp: 1532798
+
+Quick Sort Sorted 100k
+100k_type_1.txt
+Time: 4 ms
+Comp: 3265568
+
+Quick Sort Sorted 300k
+300k_type_1.txt
+Time: 16 ms
+Comp: 10596105
+
+Quick Sort Sorted 500k
+500k_type_1.txt
+Time: 26 ms
+Comp: 18262180
+

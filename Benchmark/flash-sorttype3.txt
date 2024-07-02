@@ -1,0 +1,30 @@
+Flash Sort NearlySorted 10k
+10k_type_3.txt
+Time: 0 ms
+Comp: 123463
+
+Flash Sort NearlySorted 30k
+30k_type_3.txt
+Time: 0 ms
+Comp: 370457
+
+Flash Sort NearlySorted 50k
+50k_type_3.txt
+Time: 0 ms
+Comp: 617467
+
+Flash Sort NearlySorted 100k
+100k_type_3.txt
+Time: 1 ms
+Comp: 1234957
+
+Flash Sort NearlySorted 300k
+300k_type_3.txt
+Time: 5 ms
+Comp: 3704961
+
+Flash Sort NearlySorted 500k
+500k_type_3.txt
+Time: 9 ms
+Comp: 6174965
+

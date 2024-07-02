@@ -1,0 +1,30 @@
+Heap Sort Reverse 10k
+10k_type_2.txt
+Time: 1 ms
+Comp: 606775
+
+Heap Sort Reverse 30k
+30k_type_2.txt
+Time: 3 ms
+Comp: 2063328
+
+Heap Sort Reverse 50k
+50k_type_2.txt
+Time: 6 ms
+Comp: 3612728
+
+Heap Sort Reverse 100k
+100k_type_2.txt
+Time: 15 ms
+Comp: 7718947
+
+Heap Sort Reverse 300k
+300k_type_2.txt
+Time: 48 ms
+Comp: 25569383
+
+Heap Sort Reverse 500k
+500k_type_2.txt
+Time: 84 ms
+Comp: 44483352
+

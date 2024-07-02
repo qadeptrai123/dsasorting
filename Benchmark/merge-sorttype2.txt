@@ -1,0 +1,30 @@
+Merge Sort Reverse 10k
+10k_type_2.txt
+Time: 1 ms
+Comp: 476441
+
+Merge Sort Reverse 30k
+30k_type_2.txt
+Time: 3 ms
+Comp: 1573465
+
+Merge Sort Reverse 50k
+50k_type_2.txt
+Time: 5 ms
+Comp: 2733945
+
+Merge Sort Reverse 100k
+100k_type_2.txt
+Time: 11 ms
+Comp: 5767897
+
+Merge Sort Reverse 300k
+300k_type_2.txt
+Time: 38 ms
+Comp: 18708313
+
+Merge Sort Reverse 500k
+500k_type_2.txt
+Time: 64 ms
+Comp: 32336409
+

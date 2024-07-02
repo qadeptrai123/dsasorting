@@ -1,0 +1,30 @@
+Merge Sort Random 10k
+10k_type_0.txt
+Time: 1 ms
+Comp: 583517
+
+Merge Sort Random 30k
+30k_type_0.txt
+Time: 5 ms
+Comp: 1937315
+
+Merge Sort Random 50k
+50k_type_0.txt
+Time: 8 ms
+Comp: 3382783
+
+Merge Sort Random 100k
+100k_type_0.txt
+Time: 17 ms
+Comp: 7165770
+
+Merge Sort Random 300k
+300k_type_0.txt
+Time: 58 ms
+Comp: 23382325
+
+Merge Sort Random 500k
+500k_type_0.txt
+Time: 95 ms
+Comp: 40381437
+

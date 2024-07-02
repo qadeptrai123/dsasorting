@@ -1,0 +1,30 @@
+Shell Sort Sorted 10k
+10k_type_1.txt
+Time: 0 ms
+Comp: 360042
+
+Shell Sort Sorted 30k
+30k_type_1.txt
+Time: 0 ms
+Comp: 1170050
+
+Shell Sort Sorted 50k
+50k_type_1.txt
+Time: 1 ms
+Comp: 2100049
+
+Shell Sort Sorted 100k
+100k_type_1.txt
+Time: 3 ms
+Comp: 4500051
+
+Shell Sort Sorted 300k
+300k_type_1.txt
+Time: 12 ms
+Comp: 15300061
+
+Shell Sort Sorted 500k
+500k_type_1.txt
+Time: 18 ms
+Comp: 25500058
+

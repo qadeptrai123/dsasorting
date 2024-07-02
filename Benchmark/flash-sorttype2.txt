@@ -1,0 +1,30 @@
+Flash Sort Reverse 10k
+10k_type_2.txt
+Time: 0 ms
+Comp: 106000
+
+Flash Sort Reverse 30k
+30k_type_2.txt
+Time: 0 ms
+Comp: 318000
+
+Flash Sort Reverse 50k
+50k_type_2.txt
+Time: 0 ms
+Comp: 530000
+
+Flash Sort Reverse 100k
+100k_type_2.txt
+Time: 1 ms
+Comp: 1060000
+
+Flash Sort Reverse 300k
+300k_type_2.txt
+Time: 5 ms
+Comp: 3180000
+
+Flash Sort Reverse 500k
+500k_type_2.txt
+Time: 9 ms
+Comp: 5300000
+

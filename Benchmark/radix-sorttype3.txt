@@ -1,0 +1,30 @@
+Radix Sort NearlySorted 10k
+10k_type_3.txt
+Time: 1 ms
+Comp: 140056
+
+Radix Sort NearlySorted 30k
+30k_type_3.txt
+Time: 3 ms
+Comp: 510070
+
+Radix Sort NearlySorted 50k
+50k_type_3.txt
+Time: 5 ms
+Comp: 850070
+
+Radix Sort NearlySorted 100k
+100k_type_3.txt
+Time: 11 ms
+Comp: 1700070
+
+Radix Sort NearlySorted 300k
+300k_type_3.txt
+Time: 49 ms
+Comp: 6000084
+
+Radix Sort NearlySorted 500k
+500k_type_3.txt
+Time: 76 ms
+Comp: 10000084
+

@@ -1,0 +1,30 @@
+Shell Sort Random 10k
+10k_type_0.txt
+Time: 1 ms
+Comp: 686738
+
+Shell Sort Random 30k
+30k_type_0.txt
+Time: 3 ms
+Comp: 2234914
+
+Shell Sort Random 50k
+50k_type_0.txt
+Time: 7 ms
+Comp: 4540525
+
+Shell Sort Random 100k
+100k_type_0.txt
+Time: 15 ms
+Comp: 10310337
+
+Shell Sort Random 300k
+300k_type_0.txt
+Time: 52 ms
+Comp: 35630207
+
+Shell Sort Random 500k
+500k_type_0.txt
+Time: 88 ms
+Comp: 64237826
+
