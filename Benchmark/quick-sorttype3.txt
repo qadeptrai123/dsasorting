@@ -5,12 +5,12 @@ Comp: 6427134
 
 Quick Sort NearlySorted 30k
 30k_type_3.txt
-Time: 17 ms
+Time: 16 ms
 Comp: 39080076
 
 Quick Sort NearlySorted 50k
 50k_type_3.txt
-Time: 65 ms
+Time: 60 ms
 Comp: 140108877
 
 Quick Sort NearlySorted 100k
@@ -20,11 +20,11 @@ Comp: 67718536
 
 Quick Sort NearlySorted 300k
 300k_type_3.txt
-Time: 30 ms
+Time: 28 ms
 Comp: 41787430
 
 Quick Sort NearlySorted 500k
 500k_type_3.txt
-Time: 54 ms
+Time: 56 ms
 Comp: 89124274
 

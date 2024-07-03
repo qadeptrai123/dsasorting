@@ -20,7 +20,7 @@ Comp: 3265568
 
 Quick Sort Sorted 300k
 300k_type_1.txt
-Time: 16 ms
+Time: 15 ms
 Comp: 10596105
 
 Quick Sort Sorted 500k

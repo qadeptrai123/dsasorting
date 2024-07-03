@@ -25,6 +25,6 @@ Comp: 21786865
 
 Quick Sort Reverse 500k
 500k_type_2.txt
-Time: 59 ms
+Time: 60 ms
 Comp: 38130593
 
