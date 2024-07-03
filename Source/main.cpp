@@ -197,12 +197,12 @@ void doSortAlgorithm(string algorithm, int *array, int arraySize, string paramet
     if(parameter == "-both") {
         int *dupArray = new int[arraySize];
         for(int i = 0; i < arraySize; ++i) dupArray[i] = array[i];
-        cout << "Running time: " << benchmark(array, arraySize, algorithm) << "\n";
+        cout << "Running time: " << benchmark(array, arraySize, algorithm) << " ms\n";
         cout << "Comparisons: " << getSortCounting(algorithm)(dupArray, arraySize) << "\n";
         delete[] dupArray;
     }
     else if(parameter == "-time") {
-        cout << "Running time: " << benchmark(array, arraySize, algorithm) << "\n";
+        cout << "Running time: " << benchmark(array, arraySize, algorithm) << " ms\n";
     }
     else if(parameter == "-comp") {
         cout << "Comparisons: " << getSortCounting(algorithm)(array, arraySize) << "\n";
@@ -218,7 +218,7 @@ void doCompareSortAlgorithm(string algorithm1, string algorithm2, int *array, in
     }
     long long time1 = benchmark(dupArray1, arraySize, algorithm1);
     long long time2 = benchmark(dupArray2, arraySize, algorithm2);
-    cout << "Running time: " << time1 << " | " << time2 << "\n";
+    cout << "Running time: " << time1 << " ms | " << time2 << " ms\n";
     
     for(int i = 0; i < arraySize; ++i) {
         dupArray1[i] = array[i];
